@@ -61,3 +61,11 @@ copre una o più tracce, che possono essere di due tipi:
 * [Enumerazioni](Enumerazioni.md)
 * [Costruttori con argomenti](CostruttoriArgomenti.md)
 * [Caso di studio: implementazione della JVM](JVM.md)
+
+{{ jekyll.environment }}
+
+{% if jekyll.environment == "development" %}
+
+## Laboratorio 6
+
+{% endif %}
