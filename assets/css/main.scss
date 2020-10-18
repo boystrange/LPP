@@ -1,0 +1,33 @@
+---
+---
+
+$base-font-family: "Fira Sans";
+
+@import "minima";
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,600|Fira+Sans:400,600&display=swap&subset=latin-ext');
+@import url('https://use.fontawesome.com/releases/v5.11.0/css/all.css');
+
+pre, code {
+    font-family: "Fira Code";
+}
+
+.btn-copy-code {
+    float: right;
+    background: transparent;
+    font-size: larger;
+    border: 0;
+
+    &:hover {
+	cursor: pointer;
+    }
+}
+
+.solution {
+    display: none;
+}
+
+.highlight .err {
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+}

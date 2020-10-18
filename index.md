@@ -1,43 +1,63 @@
-## Welcome to GitHub Pages
+---
+layout: home
+title: Linguaggi e Paradigmi di Programmazione
+---
 
-You can use the [editor on
-GitHub](https://github.com/boystrange/LPP/edit/gh-pages/index.md) to
-maintain and preview the content for your website in Markdown files.
+Queste pagine contengono le **tracce** di laboratorio del corso
+Linguaggi e Paradigmi di Programmazione. Ogni lezione di laboratorio
+copre una o più tracce, che possono essere di due tipi:
 
-Whenever you commit to this repository, GitHub Pages will run
-[Jekyll](https://jekyllrb.com/) to rebuild the pages in your site,
-from the content in your Markdown files.
+* **Schede**: illustrano sinteticamente e per mezzo di piccoli
+  esempi i costrutti fondamentali del linguaggio di programmazione
+  Haskell e servono per acquisire gradualmente familiarità con il
+  linguaggio;
+* **Casi di studio**: illustrano in maniera estesa e dettagliata la
+  risoluzione di un problema (relativamente) complesso nel paradigma
+  di programmazione funzionale, mettendo in luce le principali
+  differenze della soluzione rispetto ad altre per paradigmi di
+  programmazione differenti.
 
-* {% link Installazione.md %}
+## Introduzione
 
-### Markdown
+* [Installazione]({% link Installazione.md %})
+* [Legature]({% link Legature.md %})
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Laboratorio 1
 
-```markdown
-Syntax highlighted code block
+* [Caso di studio: contatore di accessi Web]({% link HitCounter.md %})
+* [Espressioni aritmetiche]({% link Espressioni.md %})
+* [Espressioni logiche]({% link Proposizioni.md %})
+* [Script]({% link Script.md %})
+* [Definizione e applicazione di funzioni]({% link Funzioni.md %})
 
-# Header 1
-## Header 2
-### Header 3
+## Laboratorio 2
 
-- Bulleted
-- List
+* [Funzioni con guardie]({% link Guardie.md %})
+* [Funzioni ricorsive]({% link Ricorsione.md %})
+* [Funzioni anonime e sezioni]({% link Lambda.md %})
+* [Funzioni a più argomenti]({% link Currying.md %})
+* [Caso di studio: dall'iterazione alla ricorsione]({% link Iterazione.md %})
 
-1. Numbered
-2. List
+## Laboratorio 3
 
-**Bold** and _Italic_ and `Code` text
+* [Tipi e classi]({% link Tipi.md %})
+* [Coppie e tuple]({% link Tuple.md %})
+* [Liste]({% link Liste.md %})
+* [Pattern matching di liste]({% link PatternMatching.md %})
+* [Caso di studio: Fibonacci logaritmico]({% link FastFibonacci.md %})
+* [Caso di studio: Insertion Sort e Merge Sort]({% link Ordinamento.md %})
 
-[Link](url) and ![Image](src)
-```
+## Laboratorio 4
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+* [Polimorfismo]({% link Polimorfismo.md %})
+* [Approfondimento sulle classi]({% link PolimorfismoLimitato.md %})
+* [Caso di studio: trasformazioni di liste e Quick Sort]({% link QuickSort.md %})
+* [List comprehension]({% link ListComprehension.md %})
+* [Caso di studio: integrazione numerica]({% link Trapezi.md %})
 
-### Jekyll Themes
+## Laboratorio 5
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/boystrange/LPP/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* [Caso di studio: la lista infinita dei numeri primi]({% link NumeriPrimi.md %})
+* [Enumerazioni]({% link Enumerazioni.md %})
+* [Costruttori con argomenti]({% link CostruttoriArgomenti.md %})
+* [Caso di studio: implementazione della JVM]({% link JVM.md %})
