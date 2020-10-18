@@ -9,14 +9,14 @@ Virtual Mini-Machine (JVMM), una versione minimale ma comunque
 espressiva della Java Virtual Machine.  In particolare, consideriamo
 il seguente insieme di istruzioni
 
-| Istruzione             | Prima | $\to$ | Dopo     | Descrizione                                                              |
-|:-----------------------|------:|:-----:|:---------|--------------------------------------------------------------------------|
-| $\PUSH{v}$             |       | $\to$ | $v$      | Inserisce il valore $v$ sullo stack                                      |
-| $\LOAD{x}$             |       | $\to$ | $v$      | Legge il valore $v$ dallo slot di $x$ e lo inserisce sullo stack         |
-| $\STORE{x}$            |   $v$ | $\to$ |          | Rimuove $v$ dallo stack e lo scrive nello slot di $x$                    |
-| $\OP{f}$               | $w,v$ | $\to$ | $f(v,w)$ | Rimuove $w$ e poi $v$ dallo stack e inserisce $f(v,w)$ sullo stack       |
-| $\IF{\mathcal{R}}\ell$ | $w,v$ | $\to$ |          | Rimuove $w$ e poi $v$ dallo stack e salta a $\ell$ se $\mathcal{R}(v,w)$ |
-| $\RETURN$              |   $v$ | $\to$ |          | Rimuove $v$ dallo stack e termina l'esecuzione con risultato $v$         |
+| Istruzione             | Prima | $\to$ | Dopo     | Descrizione                                                                    |
+|:-----------------------|------:|:-----:|:---------|--------------------------------------------------------------------------------|
+| $\PUSH{v}$             |       | $\to$ | $v$      | Inserisce il valore $v$ sullo stack                                            |
+| $\LOAD{x}$             |       | $\to$ | $v$      | Legge il valore $v$ dallo slot di $x$ e lo inserisce sullo stack               |
+| $\STORE{x}$            |   $v$ | $\to$ |          | Rimuove $v$ dallo stack e lo scrive nello slot di $x$                          |
+| $\OP{f}$               | $w,v$ | $\to$ | $f(v,w)$ | Rimuove $w$ e poi $v$ dallo stack e inserisce $f(v,w)$ sullo stack             |
+| $\IF{\mathcal{R}}\ell$ | $w,v$ | $\to$ |          | Rimuove $w$ e poi $v$ dallo stack e salta a $\ell$ se $(v, w) \in \mathcal{R}$ |
+| $\RETURN$              |   $v$ | $\to$ |          | Rimuove $v$ dallo stack e termina l'esecuzione con risultato $v$               |
 
 in cui $v$ e $w$ rappresentano **valori** della JVMM che limitiamo
 ai numeri interi, $x$ rappresenta il nome di una variabile locale,
