@@ -4,7 +4,7 @@ title: Approfondimento sulle classi
 
 ## Classi predefinite
 
-![](../assets/images/class_diagram.png)
+![](assets/images/class_diagram.png)
 
 Il diagramma qui sopra riassume alcune delle classi più importanti
 predefinite nella libreria standard di Haskell.  Le classi sono
@@ -40,8 +40,8 @@ confrontare due funzioni per determinare se sono "uguali" o
 "diverse".
 
 ``` haskell
-:t (==)
-:t (/=)
+:type (==)
+:type (/=)
 ```
 
 ## Ord
@@ -51,8 +51,8 @@ totale**. Su questi tipi sono definite le relazioni d'ordine `<`,
 `>`, `<=` e `>=`, oltre al calcolo di minimo `min` e massimo `max`.
 
 ``` haskell
-:t (<)
-:t min
+:type (<)
+:type min
 ```
 
 ## Enum
@@ -61,8 +61,8 @@ totale**. Su questi tipi sono definite le relazioni d'ordine `<`,
 **successore** e un **predecessore**.
 
 ``` haskell
-:t succ
-:t pred
+:type succ
+:type pred
 ```
 
 ## Bounded
@@ -72,8 +72,8 @@ più piccolo di tutti `minBound` e un elemento più grande di tutti
 `maxBound`.
 
 ``` haskell
-:t minBound
-:t maxBound
+:type minBound
+:type maxBound
 ```
 
 ## Num e sotto-classi
@@ -97,9 +97,9 @@ varia natura.
   l'esponenziazione `**`, le funzioni trigonometriche.
 
 ``` haskell
-:t (+)
-:t (/)
-:t sin
+:type (+)
+:type (/)
+:type sin
 ```
 
 ## Esercizi

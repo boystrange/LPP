@@ -77,22 +77,22 @@ blocks:
       - title: "Costruttori con argomenti"
         name:  CostruttoriArgomenti
       - title: "Implementazione della Java Virtual Mini-Machine"
-        case: true
+        case:  true
         name:  JVM
   - title: "Laboratorio 6"
     children:
-      - title: "Tipi polimorfi (Maybe)"
-      - title: "Tipi ricorsivi (liste)"
+      - title: "Tipi polimorfi (Maybe) e ricorsivi (liste)"
       - title: "Alberi binari di ricerca"
-        case: true
-      - title: "Derivazione simbolica di funzioni"
-        case: true
+        case:  true
+        name:  Alberi
+      - title: "Matching di espressioni regolari"
+        name:  Matching
+        case:  true
   - title: "Laboratorio 7"
     children:
       - title: "Caratteri e stringhe"
-      - title: "La classe Show"
       - title: "La monade di Input/Output"
-      - title: "Matching di espressioni regolari"
+      - title: "Derivazione simbolica di funzioni"
         case: true
   - title: "Laboratorio 8"
     children:
