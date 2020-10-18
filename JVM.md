@@ -309,6 +309,6 @@ run fibonacci [10]
    dell'estensione.
 
 Le soluzioni degli esercizi sono incluse nel file
-[JVMM.hs](../assets/haskell/JVMM.hs) che contiene il codice discusso
+[JVMM.hs](assets/haskell/JVMM.hs) che contiene il codice discusso
 in questo caso di studio.
 
