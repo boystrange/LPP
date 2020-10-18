@@ -52,6 +52,7 @@ blocks:
         case: true
         name:  Ordinamento
   - title: "Laboratorio 4"
+    public: true
     children:
       - title: "Polimorfismo"
         name:  Polimorfismo
@@ -75,7 +76,7 @@ blocks:
         name:  Enumerazioni
       - title: "Costruttori con argomenti"
         name:  CostruttoriArgomenti
-      - title: "Implementazione della JVM"
+      - title: "Implementazione della Java Virtual Mini-Machine"
         case: true
         name:  JVM
   - title: "Laboratorio 6"

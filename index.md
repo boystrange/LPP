@@ -19,7 +19,7 @@ copre una o più tracce, che possono essere di due **tipi**:
   </li>
   <li>
     <span class="fa-li">
-	  <i class="far fa-cog"></i>
+	  <i class="fas fa-file"></i>
 	</span>
 	<strong>Casi di studio</strong>: illustrano in maniera estesa e dettagliata la
 	risoluzione di un problema nel paradigma
@@ -31,13 +31,18 @@ copre una o più tracce, che possono essere di due **tipi**:
 
 {% for block in site.data.navigation.blocks %}
   {% if jekyll.environment == "development" or block.public %}
-  <h2>{{ block.title }}</h2>
+  <h2>
+    {{ block.title }}
+    {% unless block.public %}
+	<i class="fas fa-cog fa-spin"></i>
+	{% endunless %}
+  </h2>
   <ul class="fa-ul">
     {% for track in block.children %}
     <li>
       <span class="fa-li">
         {% if track.case %}
-          <i class="far fa-cog"></i>
+          <i class="fas fa-file"></i>
         {% else %}
           <i class="far fa-file"></i>
         {% endif %}
