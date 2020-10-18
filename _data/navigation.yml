@@ -1,0 +1,106 @@
+blocks:
+  - title: "Introduzione"
+    public: true
+    children:
+      - title: "Installazione del compilatore"
+        name:  Installazione
+      - title: "Legature"
+        name:  Legature
+  - title: "Laboratorio 1"
+    public: true
+    children:
+      - title: "Contatore di accessi Web"
+        name:  HitCounter
+        case: true
+      - title: "Espressioni aritmetiche"
+        name:  Espressioni
+      - title: "Espressioni logiche"
+        name:  Proposizioni
+      - title: "Script"
+        name:  Script
+      - title: "Definizione e applicazione di funzioni"
+        name:  Funzioni
+  - title: "Laboratorio 2"
+    public: true
+    children:
+      - title: "Funzioni con guardie"
+        name:  Guardie
+      - title: "Funzioni ricorsive"
+        name:  Ricorsione
+      - title: "Funzioni anonime e sezioni"
+        name:  Lambda
+      - title: "Funzioni a più argomenti"
+        name:  Currying
+      - title: "Dall'iterazione alla ricorsione"
+        name:  Iterazione
+        case: true
+  - title: "Laboratorio 3"
+    public: true
+    children:
+      - title: "Tipi e classi"
+        name:  Tipi
+      - title: "Coppie e tuple"
+        name:  Tuple
+      - title: "Liste"
+        name:  Liste
+      - title: "Pattern matching di liste"
+        name:  PatternMatching
+      - title: "Fibonacci logaritmico"
+        case: true
+        name:  FastFibonacci
+      - title: "Insertion Sort e Merge Sort"
+        case: true
+        name:  Ordinamento
+  - title: "Laboratorio 4"
+    children:
+      - title: "Polimorfismo"
+        name:  Polimorfismo
+      - title: "Approfondimento sulle classi"
+        name:  PolimorfismoLimitato
+      - title: "Trasformazioni di liste e Quick Sort"
+        case: true
+        name:  QuickSort
+      - title: "List comprehension"
+        name:  ListComprehension
+      - title: "Integrazione numerica"
+        case: true
+        name:  Trapezi
+  - title: "Laboratorio 5"
+    public: true
+    children:
+      - title: "La lista infinita dei numeri primi"
+        case: true
+        name:  NumeriPrimi
+      - title: "Enumerazioni"
+        name:  Enumerazioni
+      - title: "Costruttori con argomenti"
+        name:  CostruttoriArgomenti
+      - title: "Implementazione della JVM"
+        case: true
+        name:  JVM
+  - title: "Laboratorio 6"
+    children:
+      - title: "Tipi polimorfi (Maybe)"
+      - title: "Tipi ricorsivi (liste)"
+      - title: "Alberi binari di ricerca"
+        case: true
+      - title: "Derivazione simbolica di funzioni"
+        case: true
+  - title: "Laboratorio 7"
+    children:
+      - title: "Caratteri e stringhe"
+      - title: "La classe Show"
+      - title: "La monade di Input/Output"
+      - title: "Matching di espressioni regolari"
+        case: true
+  - title: "Laboratorio 8"
+    children:
+      - title: "La monade Maybe"
+      - title: "La monade delle liste"
+      - title: "Parsing funzionale"
+        case: true
+  - title: "Laboratorio 9"
+    children:
+      - title: "La monade di stato"
+      - title: "Layout di alberi binari"
+        case: true
