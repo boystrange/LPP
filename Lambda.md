@@ -14,7 +14,7 @@ o logica all'interno di una espressione qualsiasi.
 ## Funzioni anonime
 
 A titolo di esempio, riconsideriamo la funzione `successore` vista
-[in precedenza]({% link Funzioni.md %}):
+[in precedenza](Funzioni.md):
 
 ``` haskell
 successore :: Int -> Int

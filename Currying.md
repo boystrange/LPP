@@ -36,7 +36,7 @@ addizione (negate 2) 3
 
 Per comprendere meglio la natura delle funzioni a più argomenti,
 ripetiamo sulla funzione `addizione` l'esercizio della [sezione
-precedente]({% link Lambda.md %}), in cui abbiamo riscritto
+precedente](Lambda.md), in cui abbiamo riscritto
 `successore` usando una funzione anonima. Dal momento che
 `addizione` ha due argomenti, avremo bisogno di due passaggi in cui
 spostiamo ciascun argomento della funzione da sinistra a destra del
@@ -206,7 +206,7 @@ che facilita il riuso del codice.
    {:.solution}
 
 3. Ridefinire `pow2` vista in un esercizio della [sezione
-   precedente]({% link Ricorsione.md %}) come applicazione parziale
+   precedente](Ricorsione.md) come applicazione parziale
    di `potenza`.
    ```haskell
    pow2 :: Int -> Int
@@ -221,7 +221,7 @@ che facilita il riuso del codice.
    ```
    quale tra le funzioni già viste finora è esprimibile come
    applicazione parziale di `sottrazione`? Suggerimento: è una
-   funzione della [libreria standard]({% link Espressioni.md %}).
+   funzione della [libreria standard](Espressioni.md).
    ```haskell
    negate :: Int -> Int
    negate = sottrazione 0

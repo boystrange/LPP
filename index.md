@@ -19,45 +19,45 @@ copre una o più tracce, che possono essere di due tipi:
 
 ## Introduzione
 
-* [Installazione]({% link Installazione.md %})
-* [Legature]({% link Legature.md %})
+* [Installazione](Installazione.md)
+* [Legature](Legature.md)
 
 ## Laboratorio 1
 
-* [Caso di studio: contatore di accessi Web]({% link HitCounter.md %})
-* [Espressioni aritmetiche]({% link Espressioni.md %})
-* [Espressioni logiche]({% link Proposizioni.md %})
-* [Script]({% link Script.md %})
-* [Definizione e applicazione di funzioni]({% link Funzioni.md %})
+* [Caso di studio: contatore di accessi Web](HitCounter.md)
+* [Espressioni aritmetiche](Espressioni.md)
+* [Espressioni logiche](Proposizioni.md)
+* [Script](Script.md)
+* [Definizione e applicazione di funzioni](Funzioni.md)
 
 ## Laboratorio 2
 
-* [Funzioni con guardie]({% link Guardie.md %})
-* [Funzioni ricorsive]({% link Ricorsione.md %})
-* [Funzioni anonime e sezioni]({% link Lambda.md %})
-* [Funzioni a più argomenti]({% link Currying.md %})
-* [Caso di studio: dall'iterazione alla ricorsione]({% link Iterazione.md %})
+* [Funzioni con guardie](Guardie.md)
+* [Funzioni ricorsive](Ricorsione.md)
+* [Funzioni anonime e sezioni](Lambda.md)
+* [Funzioni a più argomenti](Currying.md)
+* [Caso di studio: dall'iterazione alla ricorsione](Iterazione.md)
 
 ## Laboratorio 3
 
-* [Tipi e classi]({% link Tipi.md %})
-* [Coppie e tuple]({% link Tuple.md %})
-* [Liste]({% link Liste.md %})
-* [Pattern matching di liste]({% link PatternMatching.md %})
-* [Caso di studio: Fibonacci logaritmico]({% link FastFibonacci.md %})
-* [Caso di studio: Insertion Sort e Merge Sort]({% link Ordinamento.md %})
+* [Tipi e classi](Tipi.md)
+* [Coppie e tuple](Tuple.md)
+* [Liste](Liste.md)
+* [Pattern matching di liste](PatternMatching.md)
+* [Caso di studio: Fibonacci logaritmico](FastFibonacci.md)
+* [Caso di studio: Insertion Sort e Merge Sort](Ordinamento.md)
 
 ## Laboratorio 4
 
-* [Polimorfismo]({% link Polimorfismo.md %})
-* [Approfondimento sulle classi]({% link PolimorfismoLimitato.md %})
-* [Caso di studio: trasformazioni di liste e Quick Sort]({% link QuickSort.md %})
-* [List comprehension]({% link ListComprehension.md %})
-* [Caso di studio: integrazione numerica]({% link Trapezi.md %})
+* [Polimorfismo](Polimorfismo.md)
+* [Approfondimento sulle classi](PolimorfismoLimitato.md)
+* [Caso di studio: trasformazioni di liste e Quick Sort](QuickSort.md)
+* [List comprehension](ListComprehension.md)
+* [Caso di studio: integrazione numerica](Trapezi.md)
 
 ## Laboratorio 5
 
-* [Caso di studio: la lista infinita dei numeri primi]({% link NumeriPrimi.md %})
-* [Enumerazioni]({% link Enumerazioni.md %})
-* [Costruttori con argomenti]({% link CostruttoriArgomenti.md %})
-* [Caso di studio: implementazione della JVM]({% link JVM.md %})
+* [Caso di studio: la lista infinita dei numeri primi](NumeriPrimi.md)
+* [Enumerazioni](Enumerazioni.md)
+* [Costruttori con argomenti](CostruttoriArgomenti.md)
+* [Caso di studio: implementazione della JVM](JVM.md)

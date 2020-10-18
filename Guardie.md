@@ -79,7 +79,7 @@ tutte quelle precedenti) sono false.
 2. Definire una funzione `giorni :: Int -> Int` che, applicata a un
    anno $n$, calcoli il numero di giorni dell'anno $n$ a seconda che
    $n$ sia un anno bisestile o meno. Si faccia uso della funzione
-   `bisestile` definita nella scheda [Funzioni]({% link Funzioni.md %}).
+   `bisestile` definita nella scheda [Funzioni](Funzioni.md).
    ```haskell
    giorni :: Int -> Int
    giorni n | bisestile n = 366
