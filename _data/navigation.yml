@@ -67,7 +67,6 @@ blocks:
         case: true
         name:  Trapezi
   - title: "Laboratorio 5"
-    public: true
     children:
       - title: "La lista infinita dei numeri primi"
         case: true

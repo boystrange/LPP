@@ -169,7 +169,7 @@ regolare risultante è annullabile.
    simboli, restituisca `True` se $v\in\lcal(F)$ e `False`
    altrimenti. Se possibile, definire `match` senza fare uso
    esplicito della ricorsione.
-3. Definire un predicato `empty :: RegExp a -> Bool` che, applicato
+3. Definire una funzione `empty :: RegExp a -> Bool` che, applicata
    a un'espressione regolare $F$, restituisca `True` se $\lcal(F) =
    \emptyset$ e `False` altrimenti.
 4. (Variante più generale e più complessa del precedente) Diciamo
