@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Linguaggi e Paradigmi di Programmazione
+title: Indice
 ---
 
 Queste pagine contengono le **tracce** di laboratorio del corso

@@ -1,0 +1,39 @@
+<ul class="menu">
+    {%- assign page_name = page.name | remove: '.md' -%}
+    {%- for block in site.data.navigation.blocks -%}
+      {%- assign block_max = block.children.size | minus: 1 -%}
+      {%- for i in (0..block_max) -%}
+        {%- if block.children[i].name == page_name -%}
+          <li>
+          {% if i > 0 %}
+            {% assign prev = i | minus: 1 %}
+            <a href="{{ block.children[prev].name }}.html">
+              <i class="fas fa-chevron-left"></i>
+              {{ block.children[prev].title }}
+            </a>
+          {% else %}
+            <a href="{{ "/" | relative_url }}">
+              <i class="fas fa-chevron-left"></i>
+              Indice
+            </a>
+          {% endif %}
+          </li>
+          <li>
+          {% if i < block_max %}
+            {% assign next = i | plus: 1 %}
+            <a href="{{ block.children[next].name }}.html">
+              {{ block.children[next].title }}
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          {% else %}
+          <a href="{{ "/" | relative_url }}">
+            Indice
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+</ul>
+    

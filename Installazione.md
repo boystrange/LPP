@@ -54,4 +54,3 @@ dall’interprete in vari modi:
 1. Installare ed eseguire l’interprete/compilatore Haskell,
    verificarne il funzionamento eseguendo i comandi `ghc` e `ghci`
    come illustrato qui sopra.
-
