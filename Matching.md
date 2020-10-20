@@ -1,5 +1,10 @@
 ---
 title: Matching di espressioni regolari
+tex_macros: |
+  \newcommand{\ling}{\mathcal{L}}
+  \newcommand{\set}[1]{\{#1\}}
+  \newcommand{\nullable}{\mathit{null}}
+  \newcommand{\derive}[2]{#2[#1]}
 ---
 
 ## Descrizione del problema
@@ -15,23 +20,23 @@ $$
   F, G ~~::=~~ \emptyset ~~\mid~~ \varepsilon ~~\mid~~ a ~~\mid~~ F + G ~~\mid~~ FG ~~\mid~~ F^*
 $$
 
-Il linguaggio $\lcal(F)$ generato da un'espressione regolare $F$ è
+Il linguaggio $\ling(F)$ generato da un'espressione regolare $F$ è
 definito per induzione sulla struttura di $F$ dalle seguenti
 equazioni:
 
 $$
   \begin{array}{rcl}
-    \lcal(\emptyset) & = & \emptyset
+    \ling(\emptyset) & = & \emptyset
     \\
-    \lcal(\varepsilon) & = & \set{\varepsilon}
+    \ling(\varepsilon) & = & \set\varepsilon
     \\
-    \lcal(a) & = & \set{a}
+    \ling(a) & = & \set{a}
     \\
-    \lcal(F + G) & = & \lcal(F) \cup \lcal(G)
+    \ling(F + G) & = & \ling(F) \cup \ling(G)
     \\
-    \lcal(FG) & = & \set{ vw \mid v \in \lcal(F) \wedge w \in \lcal(G) }
+    \ling(FG) & = & \set{ vw \mid v \in \ling(F) \wedge w \in \ling(G) }
     \\
-    \lcal{F^*} & = & \set\varepsilon \cup \lcal(F) \cup \lcal(FF) \cup \lcal(FFF) \cup \cdots
+    \ling{F^*} & = & \set\varepsilon \cup \ling(F) \cup \ling(FF) \cup \ling(FFF) \cup \cdots
   \end{array}
 $$
 
@@ -42,15 +47,15 @@ giustapponendo $v$ e $w$.
 Il problema che vogliamo affrontare in questo caso di studio è
 quello di definire una funzione che, applicata a una espressione
 regolare $F$ (opportunamente rappresentata) e a una stringa $v$,
-determini se $v\in\lcal(F)$. Il problema è reso non banale a causa
-del fatto che l'insieme $\lcal(F)$ è in generale infinito (basta
-osservare l'equazione per $\lcal(F^*)$ per rendersene conto). Nel
+determini se $v\in\ling(F)$. Il problema è reso non banale a causa
+del fatto che l'insieme $\ling(F)$ è in generale infinito (basta
+osservare l'equazione per $\ling(F^*)$ per rendersene conto). Nel
 corso di Linguaggi Formali e Traduttori è stato visto un metodo
 finito per risolvere il problema che consiste nel generare, a
 partire dall'espressione regolare $F$, un automa a stati finiti
 deterministico equivalente, ovvero che riconosce lo stesso
 linguaggio generato dall'espressione regolare. Ottenuto l'automa, il
-problema di verificare se $v\in\lcal(F)$ si riduce dunque al
+problema di verificare se $v\in\ling(F)$ si riduce dunque al
 problema di determinare se l'automa riconosce $v$, riconoscimento
 che può essere effettuato seguendo sull'automa il percorso (unico)
 etichettato con la stringa $v$ e verificando se lo stato raggiunto
@@ -59,7 +64,7 @@ al termine del percorso è finale oppure no.
 La parte complessa di questo approccio è evidentemente la
 generazione dell'automa a partire dall'espressione regolare. In
 questo caso di studio risolviamo il problema seguendo un approccio
-alternativo che consente di decidere se $v\in\lcal(F)$ utilizzando
+alternativo che consente di decidere se $v\in\ling(F)$ utilizzando
 *esclusivamente* la struttura dell'espressione regolare
 $F$. L'approccio fa uso di un operatore su espressioni regolari
 detto [derivata di
@@ -98,7 +103,7 @@ f = Seq (Star (Atom 0)) (Star (Atom 1))
 ```
 
 Diciamo che una espressione regolare $F$ è **annullabile** se
-$\varepsilon\in\lcal(F)$. Osserviamo che il problema di determinare
+$\varepsilon\in\ling(F)$. Osserviamo che il problema di determinare
 se $F$ è annullabile è facilmente risolvibile analizzando la
 struttura stessa di $F$. In particolare, possiamo definire la
 seguente funzione che, applicata a un'espressione regolare $F$,
@@ -136,25 +141,25 @@ $$
     \\
     \derive{a}{(F+G)} & = & \derive{a}{F} + \derive{a}{G}
     \\
-    \derive{a}{(FG)} & = & (\derive{a}{F})G & \text{se $\varepsilon\not\in\lcal(F)$}
+    \derive{a}{(FG)} & = & (\derive{a}{F})G & \text{se $\varepsilon\not\in\ling(F)$}
     \\
-    \derive{a}{(FG)} & = & (\derive{a}{F})G + \derive{a}{G} & \text{se $\varepsilon\in\lcal(F)$}
+    \derive{a}{(FG)} & = & (\derive{a}{F})G + \derive{a}{G} & \text{se $\varepsilon\in\ling(F)$}
     \\
     \derive{a}{(F^*)} & = & (\derive{a}{F})F^*
   \end{array}
 $$
 
 L'intuizione che sta alla base della definizione di $\derive{a}{F}$
-è la seguente: se $av \in \lcal(F)$, allora $v \in
-\lcal(\derive{a}{F})$. In generale, è possibile dimostrare che
-$\lcal(\derive{a}{F}) = \set{ v \mid av \in \lcal(F) }$.
+è la seguente: se $av \in \ling(F)$, allora $v \in
+\ling(\derive{a}{F})$. In generale, è possibile dimostrare che
+$\ling(\derive{a}{F}) = \set{ v \mid av \in \ling(F) }$.
 
 Combinando il predicato di annullabilità e la definizione di
 derivata, è possibile ottenere una procedura per decidere se
-$v\in\lcal(F)$. Sia $v = a_1a_2\cdots a_n$. Allora $v\in\lcal(F)$ se
+$v\in\ling(F)$. Sia $v = a_1a_2\cdots a_n$. Allora $v\in\ling(F)$ se
 e solo se $\varepsilon \in
-\lcal(\derive{a_n}{\derive{a_2}{\derive{a_1}{F}}\cdots})$.  In altre
-parole, per determinare se $v\in\lcal(F)$ è sufficiente calcolare
+\ling(\derive{a_n}{\derive{a_2}{\derive{a_1}{F}}\cdots})$.  In altre
+parole, per determinare se $v\in\ling(F)$ è sufficiente calcolare
 ripetutamente la derivata di $F$ rispetto ai simboli $a_1, a_2,
 \dots, a_n$ che compongono $v$ e poi verificare se l'espressione
 regolare risultante è annullabile.
@@ -166,11 +171,11 @@ regolare risultante è annullabile.
    $a$, calcoli $\derive{a}{F}$.
 2. Definire una funzione `match :: Eq a => RegExp a -> [a] -> Bool`
    che, applicata a un'espressione regolare $F$ e a una lista $v$ di
-   simboli, restituisca `True` se $v\in\lcal(F)$ e `False`
+   simboli, restituisca `True` se $v\in\ling(F)$ e `False`
    altrimenti. Se possibile, definire `match` senza fare uso
    esplicito della ricorsione.
 3. Definire una funzione `empty :: RegExp a -> Bool` che, applicata
-   a un'espressione regolare $F$, restituisca `True` se $\lcal(F) =
+   a un'espressione regolare $F$, restituisca `True` se $\ling(F) =
    \emptyset$ e `False` altrimenti.
 4. (Variante più generale e più complessa del precedente) Diciamo
    che $F$ è in **forma normale** se $F$ è $\emptyset$ oppure se in

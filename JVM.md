@@ -1,5 +1,12 @@
 ---
 title: Implementazione della Java Virtual Mini-Machine
+tex_macros: |
+  \newcommand{\PUSH}[1]{\mathtt{PUSH}~{#1}}
+  \newcommand{\LOAD}[1]{\mathtt{LOAD}~{#1}}
+  \newcommand{\STORE}[1]{\mathtt{STORE}~{#1}}
+  \newcommand{\OP}[1]{\mathtt{OP}~{#1}}
+  \newcommand{\IF}[2]{\mathtt{IF}~{#1}~{#2}}
+  \newcommand{\RETURN}{\mathtt{RETURN}}
 ---
 
 ## Descrizione del problema

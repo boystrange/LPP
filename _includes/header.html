@@ -1,3 +1,11 @@
+{% if page.tex_macros %}
+<div style="display: none">
+$$
+{{ page.tex_macros -}}
+$$
+</div>
+{% endif %}
+
 <header class="site-header" role="banner">
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
