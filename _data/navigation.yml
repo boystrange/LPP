@@ -49,7 +49,7 @@ blocks:
         case: true
         name:  FastFibonacci
       - title: "Insertion Sort e Merge Sort"
-        case: true
+        case:  true
         name:  Ordinamento
   - title: "Laboratorio 4"
     public: true
@@ -81,7 +81,7 @@ blocks:
   - title: "Laboratorio 6"
     children:
       - title: "Tipi polimorfi e ricorsivi"
-        name: TipiPolimorfi
+        name:  TipiPolimorfi
       - title: "Alberi binari di ricerca"
         case:  true
         name:  Alberi
@@ -91,17 +91,17 @@ blocks:
   - title: "Laboratorio 7"
     children:
       - title: "Caratteri e stringhe"
+        name:  CaratteriStringhe
+      - title: "Le classi Show e Read"
+        name:  ShowRead
       - title: "La monade di Input/Output"
       - title: "Derivazione simbolica di funzioni"
         case: true
   - title: "Laboratorio 8"
     children:
-      - title: "La monade Maybe"
-      - title: "La monade delle liste"
-      - title: "Parsing funzionale"
-        case: true
-  - title: "Laboratorio 9"
-    children:
       - title: "La monade di stato"
       - title: "Layout di alberi binari"
         case: true
+  - title: "Laboratorio 9"
+    children:
+      - title: "Esercizi di riepilogo"
