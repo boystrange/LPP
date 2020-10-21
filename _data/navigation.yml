@@ -80,7 +80,8 @@ blocks:
         name:  JVM
   - title: "Laboratorio 6"
     children:
-      - title: "Tipi polimorfi (Maybe) e ricorsivi (liste)"
+      - title: "Tipi polimorfi e ricorsivi"
+        name: TipiPolimorfi
       - title: "Alberi binari di ricerca"
         case:  true
         name:  Alberi
