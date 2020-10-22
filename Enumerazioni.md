@@ -161,6 +161,26 @@ morra [Sasso,Carta,Carta] [Sasso,Carta,Forbici]
 morra [Sasso,Carta,Sasso] [Sasso,Carta,Forbici]
 ```
 
+## Il tipo unitario
+
+L'enumerazione più semplice che può essere definita è quella con un
+costruttore solo e prende il nome di "tipo unitario". Haskell usa la
+sintassi `()` per indicare sia il tipo unitario che il suo unico
+costruttore. In altre parole, il tipo unitario sarebbe definito così:
+
+``` haskell
+data () = ()
+```
+
+``` haskell
+:type ()
+```
+
+Il valore unitario è privo di informazione. Infatti, sapendo che un
+valore **è di tipo** `()` si sa anche che il valore **è** `()`.  In
+generale, la valutazione di un'espressione è di tipo `()` o non
+termina o produce `()`.
+
 ## Esercizi
 
 1. Il tipo `Bool` non è altro che un'enumerazione! Definirla
@@ -240,4 +260,17 @@ morra [Sasso,Carta,Sasso] [Sasso,Carta,Forbici]
    > preferibile confrontarli una volta sola (con `compare`) invece
    > che più volte (prima con `<`, poi con `>` e infine con `==`)
    > per capire in che relazione sono.
+   {:.solution}
+5. In un linguaggio di programmazione *puro* come Haskell, in cui le
+   funzioni non possono avere effetti collaterali, il tipo `()` è
+   apparentemente inutile. Perché? Si pensi ad esempio a funzioni di
+   tipo `() -> T` o `T -> ()`.
+   ^
+   > Una funzione di tipo `() -> T` è necessariamente una *funzione
+   > costante* perché "sa" che sarà applicata a `()`, l'unico valore
+   > di tipo `()`. Dunque anziché scriverla come funzione costante è
+   > sufficiente definire la costante di tipo `T`.  Una funzione di
+   > tipo `T -> ()` applicata a un argomento di tipo `T` non termina
+   > o produce `()`, l'unico valore di tipo `()`. Dunque tanto vale
+   > scrivere direttamente `()` invece di applicare la funzione.
    {:.solution}
