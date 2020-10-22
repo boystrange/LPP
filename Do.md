@@ -1,3 +1,3 @@
 ---
-title: La notazione `do`
+title: Notazione `do`
 ---
