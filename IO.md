@@ -205,7 +205,7 @@ che elabora tale riga.
    getLines :: IO [String]
    getLines = getLine >>= \l ->
               if null l then return []
-		      else getLines >>= \ls -> return (l : ls)
+              else getLines >>= \ls -> return (l : ls)
    ```
    {:.solution}
 3. Definire un'azione `getInt :: IO Int` che legga una riga di
@@ -224,7 +224,7 @@ che elabora tale riga.
    somma :: IO ()
    somma = getInt >>= aux 0
      where
-	   aux res 0 = putStrLn (show res)
-	   aux res n = getInt >>= \k -> aux (res + k) (n - 1)
+       aux res 0 = putStrLn (show res)
+       aux res n = getInt >>= \k -> aux (res + k) (n - 1)
    ```
    {:.solution}
