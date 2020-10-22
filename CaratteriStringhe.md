@@ -1,5 +1,5 @@
 ---
-title: Caratteri e stringhe, le classi Show e Read
+title: Caratteri e stringhe
 ---
 
 ## Caratteri
