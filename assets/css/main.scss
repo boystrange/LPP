@@ -2,10 +2,11 @@
 ---
 
 $base-font-size: 15px;
+$base-font-weight: 300;
 $base-font-family: "Fira Sans";
 
 @import "minima";
-@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,600|Fira+Sans:400,600&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,600|Fira+Sans:300,600&display=swap&subset=latin-ext');
 @import url('https://use.fontawesome.com/releases/v5.11.0/css/all.css');
 
 pre, code {
