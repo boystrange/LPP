@@ -99,11 +99,9 @@ Un'immagine mentale utile a cogliere il significato del tipo `IO a`
 Un valore di tipo `IO a` rappresenta l'intenzione di eseguire una
 particolare azione ma non implica l'esecuzione della stessa. È
 necessario fornire il valore a un esecutore affinché l'azione venga
-davvero eseguita.
-
-Nel caso della monade `IO`, l'esecutore delle azioni è il **sitema
-operativo**. Per indicare al sistema operativo quale azione eseguire
-è necessario darle nome `main`.
+davvero eseguita. Nel caso della monade `IO`, l'esecutore delle
+azioni è il **sistema operativo**. Per indicare al sistema operativo
+quale azione eseguire è necessario darle nome `main`.
 
 ## Output
 
@@ -177,9 +175,9 @@ che elabora tale riga.
 
 ## Conclusione
 
-* Le funzioni Haskell, incluse quelle che hanno come codominio `IO
-  a`, continuano a essere pure in quanto tali funzioni si limitano a
-  **creare** azioni di input/output senza eseguirle.
+* Le funzioni Haskell sono pure. Quelle che hanno come codominio `IO
+  a` si limitano a **creare** azioni di input/output senza
+  eseguirle.
 * L'ordine di esecuzione delle azioni di input/output è specificato
   esplicitamente dal programmatore per mezzo degli operatori `>>=` e
   `>>`.
