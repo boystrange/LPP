@@ -214,11 +214,12 @@ termina o produce `()`.
    ```
    {:.solution}
 3. Definire un tipo `Giorno` i cui costruttori sono i giorni della
-   settimana `Lun`, `Mar`, ... poi definire le seguenti funzioni:
-   * `domani :: Giorno -> Giorno`
+   settimana `Lun`, `Mar`, `Mer`, `Gio`, `Ven`, `Sab`, `Dom` poi
+   definire le seguenti funzioni:
+   * `domani :: Giorno -> Giorno`.
    * `fra :: Int -> Giorno -> Giorno` che, applicata a un numero non
 	 negativo $n$ e a un giorno $g$, calcoli il giorno della
-	 settimana corrispondente a $n$ giorni dopo $g$
+	 settimana corrispondente a $n$ giorni dopo $g$.
    * Usando la funzione di libreria `replicate`, ridefinire la
 	 funzione `fra :: Int -> Giorno -> Giorno` dell'esercizio
 	 precedente senza fare uso esplicito della ricorsione.
