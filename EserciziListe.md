@@ -37,7 +37,7 @@ title: Esercizi sulle liste
    ricorsione. Suggerimento: usare la funzione di libreria `maximum`.
    ^
    ``` haskell
-   piuLunga :: Eq a => [[a]] -> [[a]]
+   piuLunga :: [[a]] -> [[a]]
    piuLunga xs = filter ((== m) . length) xs
      where
        m = maximum (map length xs)
