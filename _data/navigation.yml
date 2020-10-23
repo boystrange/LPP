@@ -92,14 +92,13 @@ blocks:
     children:
       - title: "Caratteri e stringhe"
         name:  CaratteriStringhe
-      - title: "Le classi Show e Read"
-        name:  ShowRead
+      - title: "Derivazione simbolica di funzioni"
+        name:  Derivata
+        case: true
       - title: "La monade di Input/Output"
         name:  IO
       - title: "Notazione do"
         name:  Do
-      - title: "Derivazione simbolica di funzioni"
-        case: true
   - title: "Laboratorio 8"
     children:
       - title: "La monade di stato"
