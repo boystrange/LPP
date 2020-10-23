@@ -162,7 +162,7 @@ numeri primi.
 ## Esercizi
 
 1. Definire una funzione non ricorsiva `primoMaggioreDi :: Integer ->
-   Integer` che, applicata a un numero interno $n$, restituisca il più
+   Integer` che, applicata a un numero intero $n$, restituisca il più
    piccolo numero primo maggiore di $n$.
    ^
    ``` haskell
