@@ -22,10 +22,10 @@ Il **tipo** di una tupla ha la forma $(T_1, T_2, \dots, T_n)$ dove
 $T_1$, ..., $T_n$ sono i tipi delle sue componenti.
 
 ``` haskell
-:t (2.5, True)
-:t (False, not)
-:t (False, 2, True)
-:t (False, (2, True))
+:type (2.5, True)
+:type (False, not)
+:type (False, 2, True)
+:type (False, (2, True))
 ```
 
 Notiamo che è possibile creare tuple che contengono funzioni così

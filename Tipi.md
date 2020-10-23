@@ -29,16 +29,16 @@ in generale, di una espressione usando il comando `:type` o la sua
 abbreviazione `:t`. Ad esempio, nel caso delle costanti booleane:
 
 ``` haskell
-:t True
-:t False
+:type True
+:type False
 ```
 
 Se si richiede il tipo di una costante numerica, il risultato non è
 quello che ci si aspetta:
 
 ``` haskell
-:t 1
-:t 1.5
+:type 1
+:type 1.5
 ```
 
 Il punto è che la costante `1` può avere *tipi diversi* a seconda
@@ -68,10 +68,10 @@ tipo.
 sintassi particolare:
 
 ``` haskell
-:t 1 :: Int
-:t 1 :: Integer
-:t 1 :: Float
-:t 1 :: Double
+:type 1 :: Int
+:type 1 :: Integer
+:type 1 :: Float
+:type 1 :: Double
 ```
 
 Un'espressione della forma `E :: T`, dove `E` è un'espressione e `T`
@@ -87,7 +87,7 @@ comprendono sufficiente informazione per individuarne univocamente
 il tipo:
 
 ``` haskell
-:t 1.5
+:type 1.5
 ```
 
 In questo caso, Haskell inferisce per `1.5` un tipo della forma
@@ -104,8 +104,8 @@ razionale o complesso. Ad esempio, è possibile forzare il tipo di
 `1.5` a `Float` o `Double`:
 
 ``` haskell
-:t 1.5 :: Float
-:t 1.5 :: Double
+:type 1.5 :: Float
+:type 1.5 :: Double
 ```
 
 ## Il tipo delle funzioni
@@ -117,8 +117,8 @@ argomento) mentre `S` rappresenta il **codominio** della funzione (è
 il tipo del valori prodotti come risultato). Ad esempio:
 
 ``` haskell
-:t not
-:t negate
+:type not
+:type negate
 ```
 
 Quando si applica una funzione a un argomento, il tipo
@@ -127,10 +127,10 @@ funzione e il tipo dell'intera applicazione è il codominio della
 funzione:
 
 ``` haskell
-:t not True
-:t negate 1
-:t negate (1 :: Int)
-:t negate (1 :: Integer)
+:type not True
+:type negate 1
+:type negate (1 :: Int)
+:type negate (1 :: Integer)
 ```
 
 Il tipo `Num a => a -> a` di `negate` è particolarmente interessante
@@ -140,9 +140,9 @@ funzione che accetta argomenti di qualunque tipo `a` sia istanza di
 qualunque esso sia:
 
 ``` haskell
-:t negate (1 :: Int)
-:t negate (1 :: Float)
-:t negate (1 :: Double)
+:type negate (1 :: Int)
+:type negate (1 :: Float)
+:type negate (1 :: Double)
 ```
 
 ## Conversioni tra tipi numerici

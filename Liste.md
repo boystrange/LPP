@@ -85,11 +85,11 @@ Se `L` è una lista di elementi di tipo `T`, allora `L` ha tipo
 parentesi quadre il tipo dei suoi elementi:
 
 ``` haskell
-:t []
-:t [1, 2, 3]
-:t [0.5, 3]
-:t [True, False]
-:t [[], [1, 2], [3]]
+:type []
+:type [1, 2, 3]
+:type [0.5, 3]
+:type [True, False]
+:type [[], [1, 2], [3]]
 ```
 
 Vale la pena commentare alcuni di questi tipi:
@@ -107,9 +107,9 @@ L'operatore `::` che forza il tipo di un'espressione può essere
 usato anche con le liste:
 
 ``` haskell
-:t [] :: [Int -> Int]
-:t [1, 2, 3] :: [Int]
-:t [0.5, 3] :: [Float]
+:type [] :: [Int -> Int]
+:type [1, 2, 3] :: [Int]
+:type [0.5, 3] :: [Float]
 ```
 
 ## Operatori e funzioni su liste
