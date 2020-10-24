@@ -177,16 +177,16 @@ numeri primi.
    {:.solution}
 2. Due numeri primi che differiscono di 2 sono chiamati **primi
    gemelli**. Ad esempio 3 e 5 sono primi gemelli, mentre 2 e 3 non
-   lo sono. Definire la lista (che si [congettura essere
-   infinita](https://it.wikipedia.org/wiki/Numeri_primi_gemelli))
-   `primiGemelli :: [Integer]` con tutti i numeri primi gemelli.
+   lo sono. Definire una funzione `primiGemelli :: Int -> (Integer,
+   Integer)` che, applicata a un numero $n$ non negativo,
+   restituisca le prime $n$ coppie di primi gemelli.
    ^
    ``` haskell
-   primiGemelli :: [Integer]
-   primiGemelli = concat (map (\(p, q) -> [p, q]) (filter gemelli (zip ps (tail ps))))
+   primiGemelli :: Int -> [(Integer, Integer)]
+   primiGemelli n = take n (filter gemelli (zip ps (tail ps)))
      where
-	   ps = filter primo (enumFrom 2)
-	   gemelli (p, q) = q == p + 2
+       ps = filter primo (enumFrom 2)
+       gemelli (p, q) = q == p + 2
    ```
    {:.solution}
 3. Che caratteristica ha la lista `xs` definita nel seguente modo?
