@@ -44,10 +44,10 @@ In sintesi, una monade consiste dei seguenti elementi:
 * Una funzione `return :: Monad m => a -> m a` che, applicata a un
   valore $v$ di tipo `a`, crea un'azione `m a` della monade che, *se
   eseguita*, non ha alcun effetto e produce $v$ come risultato.
-* Un operatore di **combinazione** `(>>=) :: Monad m => m a -> (a ->
+* Un operatore di **composizione** `(>>=) :: Monad m => m a -> (a ->
   m b) -> m b` storicamente chiamato **bind** che, applicato a
   un'azione $p$ di tipo `m a` e a una funzione $f$ di tipo `a -> m
-  b`, crea un'azione combinata che, *se eseguita*, causa
+  b`, crea un'azione composta che, *se eseguita*, causa
   l'esecuzione di $p$ e poi dell'azione ottenuta applicando $f$ al
   risultato dell'esecuzione di $p$.
 * Altre funzioni/azioni specifiche che dipendono dalla monade
@@ -69,7 +69,7 @@ se eseguita, non ha alcun effetto e produce come risultato `v`. La
 condizione 3 cattura l'intuizione che eseguire `A` e `B` e poi `C`
 ha lo stesso effetto di eseguire `A` e poi `B` e `C`. Il modo in cui
 le azioni sono associate non modifica l'effetto della loro
-combinazione.
+composizione.
 
 Per ogni monade è inoltre disponibile l'operatore `>>`,
 tradizionalmente pronunciato **and then**, che consiste in una
@@ -106,7 +106,7 @@ quale azione eseguire è necessario darle nome `main`.
 ## Output
 
 Siccome `IO` è istanza di `Monad`, è possibile usare le funzioni
-`return` e `>>=` per costruire e combinare azioni di input/output.
+`return` e `>>=` per costruire e comporre azioni di input/output.
 In aggiunta, è disponibile la seguente funzione che, applicata a un
 carattere, crea un'azione che, se eseguita, stampa quel carattere
 sul terminale e produce `()` come risultato.
@@ -118,7 +118,7 @@ sul terminale e produce `()` come risultato.
 Usando opportunamente `putChar` è possibile definire funzioni che
 creano azioni più complesse. Per esempio, la seguente funzione crea
 l'azione che, se eseguita, stampa un'intera stringa e un ritorno a
-capo sul terminale combinando sequenzialmente le azioni che, se
+capo sul terminale componendo sequenzialmente le azioni che, se
 eseguite, causano la stampa dei singoli caratteri che compongono la
 stringa.
 
@@ -127,6 +127,7 @@ putStrLn :: String -> IO ()
 putStrLn []       = return '\n'
 putStrLn (c : cs) = putChar c >> putStrLn cs
 ```
+{: #putStrLn}
 
 Usando `putStrLn` possiamo (finalmente!) scrivere il più piccolo
 programma Haskell che stampa un saluto sullo schermo:
@@ -168,8 +169,9 @@ parrot = getLine >>= \s ->
 main :: IO ()
 main = parrot
 ```
+{:#parrot}
 
-Si noti l'uso di `>>=` per combinare l'azione `getLine`, che produce
+Si noti l'uso di `>>=` per comporre l'azione `getLine`, che produce
 come risultato la riga di testo letta dal terminale, con la funzione
 che elabora tale riga.
 
@@ -194,7 +196,18 @@ che elabora tale riga.
    putStrLn = foldr ((>>) . putChar) (return '\n')
    ```
    {:.solution}
-2. Definire un'azione `getLines :: IO [String]` che legga da
+2. Senza fare uso esplicito della ricorsione, definire una funzione
+   `putLines :: [String] -> IO ()` che, applicata a una lista di
+   stringhe, crei l'azione di input/output che, se eseguita, stampa
+   sul terminale tutte le stringhe della lista, ognuna in una riga
+   per conto suo.
+   ^
+   ``` haskell
+   putLines :: [String] -> IO ()
+   putLines = foldr ((>>) . putStrLn) (return ())
+   ```
+   {:.solution}
+3. Definire un'azione `getLines :: IO [String]`{:#getLines} che legga da
    terminale una sequenza di righe terminata dalla riga vuota e
    produca come risultato la lista delle righe lette. La riga vuota
    non deve far parte del risultato.
@@ -206,7 +219,7 @@ che elabora tale riga.
               else getLines >>= \ls -> return (l : ls)
    ```
    {:.solution}
-3. Definire un'azione `getInt :: IO Int` che legga una riga di
+4. Definire un'azione `getInt :: IO Int` che legga una riga di
    testo, che si suppone contenga un numero intero, e produca il
    valore corrispondente di tipo `Int`. Suggerimento: usare `read`.
    ^
@@ -215,7 +228,7 @@ che elabora tale riga.
    getInt = getLine >>= return . read
    ```
    {:.solution}
-4. Definire un'azione `somma :: IO ()`} che legga un numero intero
+5. Definire un'azione `somma :: IO ()`} che legga un numero intero
    $n$ seguito da ulteriori $n$ numeri e ne stampi la somma.
    ^
    ``` haskell
