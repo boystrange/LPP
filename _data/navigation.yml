@@ -107,3 +107,4 @@ blocks:
   - title: "Laboratorio 9"
     children:
       - title: "Esercizi di riepilogo"
+        name:  EserciziRiepilogo
