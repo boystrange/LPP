@@ -1,8 +1,16 @@
 [`()`]:        https://hoogle.haskell.org/?hoogle=()&scope=set%3Aincluded-with-ghc
 [`<`]:         https://hoogle.haskell.org/?hoogle=%3C&scope=set%3Aincluded-with-ghc
-[`>`]:         https://hoogle.haskell.org/?hoogle=%60&scope=set%3Aincluded-with-ghc
+[`>`]:         https://hoogle.haskell.org/?hoogle=%3E&scope=set%3Aincluded-with-ghc
+[`.`]:         https://hoogle.haskell.org/?hoogle=%2E&scope=set%3Aincluded-with-ghc
 [`compare`]:   https://hoogle.haskell.org/?hoogle=compare&scope=set%3Aincluded-with-ghc
+[`Data.List`]: https://hoogle.haskell.org/?hoogle=Data%2EList&scope=set%3Aincluded-with-ghc
+[`length`]:    https://hoogle.haskell.org/?hoogle=length&scope=set%3Aincluded-with-ghc
+[`lines`]:     https://hoogle.haskell.org/?hoogle=lines&scope=set%3Aincluded-with-ghc
+[`map`]:       https://hoogle.haskell.org/?hoogle=map&scope=set%3Aincluded-with-ghc
+[`nub`]:       https://hoogle.haskell.org/?hoogle=nub&scope=set%3Aincluded-with-ghc
 [`Ord`]:       https://hoogle.haskell.org/?hoogle=Ord&scope=set%3Aincluded-with-ghc
 [`Ordering`]:  https://hoogle.haskell.org/?hoogle=Ordering&scope=set%3Aincluded-with-ghc
 [`replicate`]: https://hoogle.haskell.org/?hoogle=replicate&scope=set%3Aincluded-with-ghc
 [`Show`]:      https://hoogle.haskell.org/?hoogle=Show&scope=set%3Aincluded-with-ghc
+[`String`]:    https://hoogle.haskell.org/?hoogle=String&scope=set%3Aincluded-with-ghc
+[`takeWhile`]: https://hoogle.haskell.org/?hoogle=takeWhile&scope=set%3Aincluded-with-ghc
