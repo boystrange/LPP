@@ -13,7 +13,7 @@ Supponiamo di voler realizzare una funzione `morra` che determini il
 vincitore di due giocatori che si sfidano alla [morra
 cinese](https://it.wikipedia.org/wiki/Morra_cinese). La funzione ha
 due argomenti con le **mosse** dei due giocatori e restituisce un
-numero tra 0, 1 o 2 a seconda che la partità finisca in parità (le
+numero tra 0, 1 o 2 a seconda che il gioco finisca in parità (le
 due liste sono uguali) o che vinca uno dei due giocatori.  Si pone
 immediatamente il problema di come **rappresentare** le mosse del
 gioco, che nel caso specifico sono di **tre tipi**: **sasso** <i
@@ -90,7 +90,7 @@ Sasso
 
 Come si evince dal messaggio di errore che si ottiene in questo
 caso, Haskell si lamenta del fatto che il tipo `Mossa` non è istanza
-della classe `Show`, ovvero la classe dei tipi di dato
+della classe [`Show`], ovvero la classe dei tipi di dato
 "visualizzabili".
 
 È possibile chiedere ad Haskell di introdurre una visualizzazione di
@@ -133,12 +133,12 @@ A questo punto è possibile completare la definizione di `morra`
 analizzando la struttura delle due liste di mosse dei due giocatori:
 
 ``` haskell
-gioco :: [Mossa] -> [Mossa] -> Int
-gioco [] [] = 0
-gioco _  [] = 1
-gioco [] _  = 2
-gioco (x : xs) (y : ys) | vincitore /= 0 = vincitore
-                        | otherwise      = gioco xs ys
+morra :: [Mossa] -> [Mossa] -> Int
+morra [] [] = 0
+morra _  [] = 1
+morra [] _  = 2
+morra (x : xs) (y : ys) | vincitore /= 0 = vincitore
+                        | otherwise      = morra xs ys
   where
     vincitore = vince x y
 ```
@@ -163,10 +163,11 @@ morra [Sasso,Carta,Sasso] [Sasso,Carta,Forbici]
 
 ## Il tipo unitario
 
-L'enumerazione più semplice che può essere definita è quella con un
-costruttore solo e prende il nome di "tipo unitario". Haskell usa la
-sintassi `()` per indicare sia il tipo unitario che il suo unico
-costruttore. In altre parole, il tipo unitario sarebbe definito così:
+Un caso estremo di enumerazione è quello in cui vi è un solo
+costruttore. Tale enumerazione prende il nome di "tipo
+unitario". Haskell usa la sintassi [`()`] per indicare sia il tipo
+unitario che il suo unico costruttore. In altre parole, il tipo
+unitario sarebbe definito così:
 
 ``` haskell
 data () = ()
@@ -177,9 +178,9 @@ data () = ()
 ```
 
 Il valore unitario è privo di informazione. Infatti, sapendo che un
-valore **è di tipo** `()` si sa anche che il valore **è** `()`.  In
-generale, la valutazione di un'espressione è di tipo `()` o non
-termina o produce `()`.
+valore **è di tipo** [`()`] si sa anche che il valore **è** [`()`].  In
+generale, la valutazione di un'espressione è di tipo [`()`] o non
+termina o produce [`()`].
 
 ## Esercizi
 
@@ -220,7 +221,7 @@ termina o produce `()`.
    * `fra :: Int -> Giorno -> Giorno` che, applicata a un numero non
 	 negativo $n$ e a un giorno $g$, calcoli il giorno della
 	 settimana corrispondente a $n$ giorni dopo $g$.
-   * Usando la funzione di libreria `replicate`, ridefinire la
+   * Usando la funzione di libreria [`replicate`], ridefinire la
 	 funzione `fra :: Int -> Giorno -> Giorno` dell'esercizio
 	 precedente senza fare uso esplicito della ricorsione.
    ^
@@ -245,25 +246,25 @@ termina o produce `()`.
    fra_replicate n = foldr (.) id (replicate n domani)
    ```
    {:.solution}
-4. La classe `Ord` ha anche una funzione `compare` che restituisce
-   un valore di tipo `Ordering`. Esaminando il tipo di `compare` e
-   la definizione di `Ordering` (con `:info Ordering`) descrivere
-   comportamento e utilità di `compare`.
+4. La classe [`Ord`] ha anche una funzione [`compare`] che restituisce
+   un valore di tipo [`Ordering`]. Esaminando il tipo di [`compare`] e
+   la definizione di [`Ordering`] (con `:info Ordering`) descrivere
+   comportamento e utilità di [`compare`].
    ^
-   > La funzione `compare` restituisce il risultato del confronto di
+   > La funzione [`compare`] restituisce il risultato del confronto di
    > due valori $x$ ed $y$ il cui tipo è istanza di `Ord`, dunque
    > per i quali esiste una relazione d'ordine totale: se il
    > risultato è `LT` allora $x$ è "più piccolo" di $y$; se il
    > risultato è `GT` allora $x$ è "più grande" di $y$; se il
    > risultato è `EQ` allora $x$ ed $y$ sono uguali. È conveniente
-   > usare `compare` laddove il confronto di due valori può essere
+   > usare [`compare`] laddove il confronto di due valori può essere
    > "costoso" (ad esempio, se $x$ ed $y$ sono liste) ed è
-   > preferibile confrontarli una volta sola (con `compare`) invece
-   > che più volte (prima con `<`, poi con `>` e infine con `==`)
+   > preferibile confrontarli una volta sola (con [`compare`]) invece
+   > che più volte (prima con [`<`], poi con [`>`] e infine con `==`)
    > per capire in che relazione sono.
    {:.solution}
 5. In un linguaggio di programmazione *puro* come Haskell, in cui le
-   funzioni non possono avere effetti collaterali, il tipo `()` è
+   funzioni non possono avere effetti collaterali, il tipo [`()`] è
    apparentemente inutile. Perché? Si pensi ad esempio a funzioni di
    tipo `() -> T` o `T -> ()`.
    ^
@@ -275,3 +276,12 @@ termina o produce `()`.
    > o produce `()`, l'unico valore di tipo `()`. Dunque tanto vale
    > scrivere direttamente `()` invece di applicare la funzione.
    {:.solution}
+
+[`()`]:        https://hoogle.haskell.org/?hoogle=()&scope=set%3Aincluded-with-ghc
+[`<`]:         https://hoogle.haskell.org/?hoogle=%3C&scope=set%3Aincluded-with-ghc
+[`>`]:         https://hoogle.haskell.org/?hoogle=%60&scope=set%3Aincluded-with-ghc
+[`compare`]:   https://hoogle.haskell.org/?hoogle=compare&scope=set%3Aincluded-with-ghc
+[`Ord`]:       https://hoogle.haskell.org/?hoogle=Ord&scope=set%3Aincluded-with-ghc
+[`Ordering`]:  https://hoogle.haskell.org/?hoogle=Ordering&scope=set%3Aincluded-with-ghc
+[`replicate`]: https://hoogle.haskell.org/?hoogle=replicate&scope=set%3Aincluded-with-ghc
+[`Show`]:      https://hoogle.haskell.org/?hoogle=Show&scope=set%3Aincluded-with-ghc
