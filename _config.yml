@@ -1,3 +1,7 @@
 title: Linguaggi e Paradigmi di Programmazione
 theme: minima
 baseurl: /LPP
+
+exclude:
+  - README.md
+  - assets/bash/urlencode

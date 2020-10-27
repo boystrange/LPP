@@ -2,6 +2,8 @@
 title: Enumerazioni
 ---
 
+{% include links.md %}
+
 Una **enumerazione** è un nuovo tipo di dato i cui valori sono
 definiti dall'utente. In questa scheda motiviamo l'esigenza di
 definire nuovi tipi di dato e illustriamo il meccanismo base per
@@ -276,13 +278,3 @@ termina o produce [`()`].
    > o produce `()`, l'unico valore di tipo `()`. Dunque tanto vale
    > scrivere direttamente `()` invece di applicare la funzione.
    {:.solution}
-
-{% include links.md %}
-<!-- [`()`]:        https://hoogle.haskell.org/?hoogle=()&scope=set%3Aincluded-with-ghc -->
-<!-- [`<`]:         https://hoogle.haskell.org/?hoogle=%3C&scope=set%3Aincluded-with-ghc -->
-<!-- [`>`]:         https://hoogle.haskell.org/?hoogle=%60&scope=set%3Aincluded-with-ghc -->
-<!-- [`compare`]:   https://hoogle.haskell.org/?hoogle=compare&scope=set%3Aincluded-with-ghc -->
-<!-- [`Ord`]:       https://hoogle.haskell.org/?hoogle=Ord&scope=set%3Aincluded-with-ghc -->
-<!-- [`Ordering`]:  https://hoogle.haskell.org/?hoogle=Ordering&scope=set%3Aincluded-with-ghc -->
-<!-- [`replicate`]: https://hoogle.haskell.org/?hoogle=replicate&scope=set%3Aincluded-with-ghc -->
-<!-- [`Show`]:      https://hoogle.haskell.org/?hoogle=Show&scope=set%3Aincluded-with-ghc -->

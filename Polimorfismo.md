@@ -2,6 +2,8 @@
 title: Polimorfismo
 ---
 
+{% include links.md %}
+
 In questa scheda esaminiamo più in dettaglio il **polimorfismo**,
 ovvero la proprietà di alcune funzioni di essere applicabili ad
 argomenti di tipo diverso.
@@ -19,7 +21,7 @@ id x = x
 
 In questa definizione della funzione identità abbiamo volutamente
 omesso la dichiarazione che ne stabilisce il tipo. In effetti,
-è concepibile dare a `id` una moltitudine di tipi diversi:
+è concepibile dare a [`id`] una moltitudine di tipi diversi:
 
 ```haskell
 id :: Int -> Int
@@ -28,7 +30,7 @@ id :: Float -> Float
 ...
 ```
 
-In questo senso `id` è una funzione polimorfa, e questa proprietà la
+In questo senso [`id`] è una funzione polimorfa, e questa proprietà la
 si può rendere palese dandole il **tipo più generale** facendo uso
 di **variabili di tipo**:
 
@@ -37,16 +39,16 @@ id :: a -> a
 id x = x
 ```
 
-La dichiarazione indica che `id` è una funzione che può essere
+La dichiarazione indica che [`id`] è una funzione che può essere
 applicata ad argomenti di un qualunque tipo `a` (nome scelto dal
 programmatore), e che restituisce un valore dello stesso tipo
 `a`. Notiamo in particolare che tutti i tipi elencati in precedenza
 (`Int -> Int`, `Bool -> Bool`, `Float -> Float`, ecc.) sono
 **istanze** del tipo `a -> a` ottenute sostituendo la variabile di
-tipo `a` con un tipo più specifico (`Int`, `Bool`, `Float`,
+tipo `a` con un tipo più specifico ([`Int`], [`Bool`], [`Float`],
 rispettivamente).
 
-Il polimorfismo di `id` è evidente applicando la funzione ad
+Il polimorfismo di [`id`] è evidente applicando la funzione ad
 argomenti di tipo diverso:
 
 ```haskell
@@ -57,9 +59,9 @@ id id
 ```
 
 Nell'ultimo esempio, notiamo che il polimorfismo permette
-addirittura di applicare `id` a se stessa. Evidentemente le due
-occorrenze di `id` sono trattate in modo distinto: se l'occorrenza
-di `id` più a destra ha tipo `a -> a`, l'occorrenza più a sinistra
+addirittura di applicare [`id`] a se stessa. Evidentemente le due
+occorrenze di [`id`] sono trattate in modo distinto: se l'occorrenza
+di [`id`] più a destra ha tipo `a -> a`, l'occorrenza più a sinistra
 può avere tipo `(a -> a) -> (a -> a)`, in modo che l'applicazione
 sia ben tipata.
 
@@ -67,7 +69,7 @@ sia ben tipata.
 
 Nella sezione precedente abbiamo visto che è possibile usare le
 variabili di tipo per esprimere dei **vincoli** tra dominio e
-codominio di una funzione. In particolare, la funzione `id` è
+codominio di una funzione. In particolare, la funzione [`id`] è
 vincolata ad avere dominio e codominio uguali. In generale, è
 possibile imporre dei vincoli sul tipo di argomenti diversi di una
 funzione usando la **stessa variabile di tipo** più volte. Ad
@@ -83,7 +85,7 @@ liste
 specifica che le due liste da concatenare possono avere elementi di
 tipo arbitrario, purché il tipo sia lo stesso nelle due liste.
 
-Analogamente, l'operatore di composizione funzionale `.`, definito
+Analogamente, l'operatore di composizione funzionale [`.`], definito
 come
 
 ``` haskell
@@ -92,7 +94,7 @@ come
 ```
 
 indica che una composizione `f . g` è ben tipata purché il codominio
-di `g` coincida con il dominio di `f`. Il tipo di `.` indica anche
+di `g` coincida con il dominio di `f`. Il tipo di [`.`] indica anche
 che `f . g` è una funzione che ha lo stesso dominio di `g` e lo
 stesso codominio di `f`.
 
@@ -158,5 +160,5 @@ stesso codominio di `f`.
 	  `drop n xs` rimuove i primi `n` elementi di `xs`
    17. `zip xs ys` crea una lista di coppie di elementi
 	  corrispondenti in `xs` e `ys`
-   18. `unzip xs` operazione inversa di `zip`
+   18. `unzip xs` operazione inversa di [`zip`]
    {:.solution}
