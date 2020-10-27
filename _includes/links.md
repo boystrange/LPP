@@ -1,5 +1,6 @@
 [`()`]: https://hoogle.haskell.org/?hoogle=()&scope=set%3Aincluded-with-ghc
 [`.`]: https://hoogle.haskell.org/?hoogle=.&scope=set%3Aincluded-with-ghc
+[`/`]: https://hoogle.haskell.org/?hoogle=/&scope=set%3Aincluded-with-ghc
 [`<`]: https://hoogle.haskell.org/?hoogle=<&scope=set%3Aincluded-with-ghc
 [`>`]: https://hoogle.haskell.org/?hoogle=>&scope=set%3Aincluded-with-ghc
 [`Data.List`]: https://hoogle.haskell.org/?hoogle=Data.List&scope=set%3Aincluded-with-ghc
@@ -7,13 +8,17 @@
 [`Ordering`]: https://hoogle.haskell.org/?hoogle=Ordering&scope=set%3Aincluded-with-ghc
 [`Show`]: https://hoogle.haskell.org/?hoogle=Show&scope=set%3Aincluded-with-ghc
 [`String`]: https://hoogle.haskell.org/?hoogle=String&scope=set%3Aincluded-with-ghc
+[`abs`]: https://hoogle.haskell.org/?hoogle=abs&scope=set%3Aincluded-with-ghc
 [`compare`]: https://hoogle.haskell.org/?hoogle=compare&scope=set%3Aincluded-with-ghc
+[`div`]: https://hoogle.haskell.org/?hoogle=div&scope=set%3Aincluded-with-ghc
 [`getLines`]: https://hoogle.haskell.org/?hoogle=getLines&scope=set%3Aincluded-with-ghc
 [`interact`]: https://hoogle.haskell.org/?hoogle=interact&scope=set%3Aincluded-with-ghc
 [`isEOF`]: https://hoogle.haskell.org/?hoogle=isEOF&scope=set%3Aincluded-with-ghc
 [`length`]: https://hoogle.haskell.org/?hoogle=length&scope=set%3Aincluded-with-ghc
 [`lines`]: https://hoogle.haskell.org/?hoogle=lines&scope=set%3Aincluded-with-ghc
 [`map`]: https://hoogle.haskell.org/?hoogle=map&scope=set%3Aincluded-with-ghc
+[`mod`]: https://hoogle.haskell.org/?hoogle=mod&scope=set%3Aincluded-with-ghc
+[`negate`]: https://hoogle.haskell.org/?hoogle=negate&scope=set%3Aincluded-with-ghc
 [`nub`]: https://hoogle.haskell.org/?hoogle=nub&scope=set%3Aincluded-with-ghc
 [`parrot`]: https://hoogle.haskell.org/?hoogle=parrot&scope=set%3Aincluded-with-ghc
 [`replicate`]: https://hoogle.haskell.org/?hoogle=replicate&scope=set%3Aincluded-with-ghc

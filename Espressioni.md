@@ -3,6 +3,8 @@ title: Espressioni aritmetiche
 tags: (+) (-) (*) div mod (^)
 ---
 
+{% include links.md %}
+
 ## Numeri interi e operatori
 
 In prima istanza l’interprete Haskell può essere usato come una
@@ -19,7 +21,7 @@ il momento — l’interprete la **valuta** e ne mostra il valore.
 2 ^ 3           -- 2 alla 3
 ```
 
-Gli operatori `div` e `mod` devono essere racchiusi tra **singoli
+Gli operatori [`div`] e [`mod`] devono essere racchiusi tra **singoli
 apici invertiti** (detti anche **backtick**) per poter essere usati
 in notazione **infissa**, ovvero in mezzo ai loro operandi. Vedremo
 in seguito che è anche possibile usarli senza apici, in notazione
@@ -60,9 +62,9 @@ abs (2 - 5)
 
 Come si nota dagli esempi, l’espressione `negate 2 + 3` viene
 interpretata come `(negate 2) + 3` ovvero prima si applica la
-funzione `negate` a `2` e _successivamente_ si somma il risultato a
-`3`.  Al contrario, in `negate (2 + 3)` si applica la funzione
-`negate` al risultato della somma di `2` e `3`.  In generale,
+funzione [`negate`] a `2` e _successivamente_ si somma il risultato
+a `3`.  Al contrario, in `negate (2 + 3)` si applica la funzione
+[`negate`] al risultato della somma di `2` e `3`.  In generale,
 l’operatore (invisibile) di applicazione funzionale ha la **priorità
 massima** tra tutti gli operatori di Haskell (inclusi quelli che
 verranno introdotti in seguito).
@@ -82,8 +84,8 @@ abs negate 3
 {:.run}
 
 Gli ultimi due esempi causano un **errore di tipo** in quanto si
-cerca di applicare la funzione `abs`, che si aspetta come argomento
-un numero, a un’altra funzione (`negate`).
+cerca di applicare la funzione [`abs`], che si aspetta come argomento
+un numero, a un’altra funzione ([`negate`]).
 
 ## Numeri con virgola e operatori
 
@@ -116,8 +118,8 @@ Gli operatori aritmetici sono utilizzabili anche su operandi con virgola:
 ```
 {:.run}
 
-In aggiunta, l’operatore `/` indica la divisione (con
-virgola). Notare la differenza tra `/` e `div`:
+In aggiunta, l’operatore [`/`] indica la divisione (con
+virgola). Notare la differenza tra [`/`] e [`div`]:
 
 ```haskell
 7 / 2
@@ -127,7 +129,7 @@ virgola). Notare la differenza tra `/` e `div`:
 ```
 {:.run}
 
-Nell’ultimo esempio si ottiene un errore in quanto `div` funziona
+Nell’ultimo esempio si ottiene un errore in quanto [`div`] funziona
 esclusivamente su operandi interi.
 
 ## Esercizi
