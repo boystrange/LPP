@@ -10,6 +10,7 @@
 [`Data.List`]: https://hoogle.haskell.org/?hoogle=Data.List&scope=set%3Aincluded-with-ghc
 [`Enum`]: https://hoogle.haskell.org/?hoogle=Enum&scope=set%3Aincluded-with-ghc
 [`False`]: https://hoogle.haskell.org/?hoogle=False&scope=set%3Aincluded-with-ghc
+[`Float`]: https://hoogle.haskell.org/?hoogle=Float&scope=set%3Aincluded-with-ghc
 [`Int`]: https://hoogle.haskell.org/?hoogle=Int&scope=set%3Aincluded-with-ghc
 [`Ord`]: https://hoogle.haskell.org/?hoogle=Ord&scope=set%3Aincluded-with-ghc
 [`Ordering`]: https://hoogle.haskell.org/?hoogle=Ordering&scope=set%3Aincluded-with-ghc
@@ -33,6 +34,7 @@
 [`not`]: https://hoogle.haskell.org/?hoogle=not&scope=set%3Aincluded-with-ghc
 [`nub`]: https://hoogle.haskell.org/?hoogle=nub&scope=set%3Aincluded-with-ghc
 [`parrot`]: https://hoogle.haskell.org/?hoogle=parrot&scope=set%3Aincluded-with-ghc
+[`pi`]: https://hoogle.haskell.org/?hoogle=pi&scope=set%3Aincluded-with-ghc
 [`replicate`]: https://hoogle.haskell.org/?hoogle=replicate&scope=set%3Aincluded-with-ghc
 [`take`]: https://hoogle.haskell.org/?hoogle=take&scope=set%3Aincluded-with-ghc
 [`takeWhile`]: https://hoogle.haskell.org/?hoogle=takeWhile&scope=set%3Aincluded-with-ghc

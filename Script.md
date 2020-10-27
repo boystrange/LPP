@@ -2,6 +2,8 @@
 title: Script
 ---
 
+{% include links.md %}
+
 ## Definizioni e dichiarazioni
 
 L’uso dell’interprete `ghci` come calcolatrice va bene per la
@@ -9,7 +11,10 @@ valutazione di semplici espressioni. Quando si scrive un programma
 complesso lo si inserisce in uno **script**, ovvero un file di testo
 con estensione `.hs` che contiene un insieme di **definizioni**.
 
-Una **definizione** è un’associazione tra un **nome** _N_ ed una **espressione** _E_. All’interno di uno script, è possibile fare riferimento al valore dell’espressione _E_ scrivendone il nome associato _N_.
+Una **definizione** è un’associazione tra un **nome** _N_ ed una
+**espressione** _E_. All’interno di uno script, è possibile fare
+riferimento al valore dell’espressione _E_ scrivendone il nome
+associato _N_.
 
 Usando un editor di testo, definiamo lo script `PrimoScript.hs` con
 il seguente contenuto:
@@ -25,7 +30,7 @@ v_terra = anno_terra / (365 * 24)
 Ogni **definizione** è preceduta da una **dichiarazione** della
 forma `N :: T` dove `N` è il nome della definizione e `T` il suo
 tipo. Qui sopra abbiamo 2 definizioni, una per il nome `anno_terra`
-e una per il nome `v_terra`, entrambe di tipo `Float`, il tipo dei
+e una per il nome `v_terra`, entrambe di tipo [`Float`], il tipo dei
 numeri in virgola mobile a precisione singola.  Ogni dichiarazione è
 seguita dalla definizione vera e propria della forma `N = E`, in cui
 si stabilisce che `N` è il nome per il **valore** dell’espressione
@@ -34,7 +39,7 @@ pi * 150e6` che calcola, in maniera approssimativa, la lunghezza in
 chilometri dell’orbita terrestre, approssimandola a un cerchio di
 raggio `150e6` chilometri (si ricordi che la notazione `150e6`
 significa 150 moltiplicato per 10 elevato alla 6, ovvero 150 milioni
-di chilometri).  Il nome `pi` corrisponde al valore (approssimato)
+di chilometri).  Il nome [`pi`] corrisponde al valore (approssimato)
 di pi greco.  Il valore di `v_terra` è la velocità approssimativa
 della Terra nel suo moto attorno al Sole, qui determinata dividendo
 la lunghezza dell’orbita per il tempo di percorrenza in ore.

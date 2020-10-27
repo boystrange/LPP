@@ -2,13 +2,15 @@
 title: Funzioni
 ---
 
+{% include links.md %}
+
 ## Definizione e applicazione di funzioni
 
 Una **funzione** rappresenta una particolare trasformazione da un
 **dominio** (l’insieme dei dati che la funzione può accettare) a un
 **codominio** (l’insieme dei dati che la funzione può produrre). Il
 seguente esempio definisce la funzione _successore_, ovvero quella
-funzione che, applicata a un numero intero $x$ (di tipo `Int`),
+funzione che, applicata a un numero intero $x$ (di tipo [`Int`]),
 produce $x + 1$.
 
 ```haskell
@@ -20,8 +22,8 @@ Come per le definizioni di valori semplici, anche la definizione di
 una funzione è (solitamente) preceduta da una dichiarazione che ne
 stabilisce il **tipo**.  Il tipo di una funzione ha la forma $T \to
 S$ dove $T$ rappresenta il dominio ed $S$ il codominio. In questo
-caso, dominio e codominio sono `Int` a indicare il fatto che la
-funzione accetta e produce numeri interi (di tipo `Int`).  La
+caso, dominio e codominio sono [`Int`] a indicare il fatto che la
+funzione accetta e produce numeri interi (di tipo [`Int`]).  La
 funzione vera e propria è definita da una **equazione** `successore
 x = x + 1` che si può leggere come “la funzione `successore`
 applicata all’argomento `x` produce il valore `x + 1`”.
@@ -43,14 +45,19 @@ essere interpretata `(successore 2) * 3` e non `successore (2 * 3)`.
 
 ## Predicati
 
-Una funzione che ha come codominio il tipo `Bool` dei valori di verità può essere pensata come a un **predicato** che stabilisce se il suo argomento soddisfa o meno una certa proprietà. Per esempio, la seguente funzione determina se un numero intero è pari o no:
+Una funzione che ha come codominio il tipo [`Bool`] dei valori di
+verità può essere pensata come a un **predicato** che stabilisce se
+il suo argomento soddisfa o meno una certa proprietà. Per esempio,
+la seguente funzione determina se un numero intero è pari o no:
 
 ```haskell
 pari :: Int -> Bool
 pari n = n `mod` 2 == 0
 ```
 
-Il valore prodotto dall’applicazione di `pari` a `n` è il booleano `True` se il resto della divisione di `n` per 2 è 0 (dunque se `n` è pari) e `False` altrimenti. Ad esempio:
+Il valore prodotto dall’applicazione di `pari` a `n` è il booleano
+[`True`] se il resto della divisione di `n` per 2 è 0 (dunque se `n` è
+pari) e [`False`] altrimenti. Ad esempio:
 
 ```haskell
 pari 0
@@ -61,7 +68,7 @@ pari 3
 ## Operatore di composizione funzionale
 
 Possiamo **comporre** due funzioni usando l’operatore di
-composizione funzionale `.` (il punto). Per esempio, abbiamo appena
+composizione funzionale [`.`] (il punto). Per esempio, abbiamo appena
 definito al funzione `pari` che determina se un numero è pari. Il
 predicato “essere un numero dispari” può essere espresso come la
 negazione del predicato “essere un numero pari”, nel seguente modo:
@@ -78,7 +85,7 @@ x)`. Dunque, `not . pari` applicata a un numero `n` calcola `not
 (pari n)`.  Notare che l’equazione `dispari = not . pari` che
 definisce `dispari` non dà alcun nome all’argomento della funzione,
 ma si limita a dire che `dispari` è la funzione ottenuta dalla
-composizione di `not` e `pari`.
+composizione di [`not`] e `pari`.
 
 ## Esercizi
 
