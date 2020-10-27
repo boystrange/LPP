@@ -162,10 +162,10 @@ counter = length . nub . map (\line -> takeWhile (/= ' ') line) . lines
 La clausola `import` serve per rendere visibili definizioni
 contenute in un particolare modulo della libreria standard di
 Haskell. In questo caso specifico, siamo interessati alla funzione
-`nub` del modulo `Data.List`. Solo un piccolo sottoinsieme di
+[`nub`] del modulo [`Data.List`]. Solo un piccolo sottoinsieme di
 funzioni di libreria sono visibili -- e dunque utilizzabili -- di
 default. Si tratta delle funzioni contenute nel cosiddetto
-"preludio". Tutte le altre funzioni, come `nub`, devono essere
+"preludio". Tutte le altre funzioni, come [`nub`], devono essere
 importate esplicitamente.
 
 Le ultime due righe rispettivamente dichiarano e definiscono una
@@ -173,7 +173,7 @@ Le ultime due righe rispettivamente dichiarano e definiscono una
 (rappresentato come stringa di caratteri), ritorna il numero di
 clienti.  La funzione `counter` è definita a partire da funzioni già
 esistenti composte tra loro per mezzo dell'operatore di composizione
-funzionale, denotato in Haskell dal simbolo `.` e in matematica dal
+funzionale, denotato in Haskell dal simbolo [`.`] e in matematica dal
 simbolo $\circ$.  Notiamo innanzi tutto che la composizione
 funzionale di Haskell è definita come in matematica in modo tale che
 $(f \circ g)(x) = f(g(x))$. Ciò significa che, data una catena di
@@ -186,7 +186,7 @@ trasformato **da sinistra verso destra**. A parte la direzione delle
 trasformazioni, ci sono molte analogie tra la soluzione Haskell e
 qualla Bash.
 
-La funzione `lines` ha lo scopo di spezzare l'input (un'unica
+La funzione [`lines`] ha lo scopo di spezzare l'input (un'unica
 stringa con l'intero log file) nelle sue righe, producendo una lista
 di stringhe. Questo passaggio non era necessario nella soluzione
 Bash dal momento che in quel caso i comandi usati assumono già di
@@ -195,11 +195,11 @@ scomposizione dell'input in linee distinte è una trasformazione
 necessaria. Si ricorda che le linee in un file di testo sono
 terminate da un carattere particolare (il carattere di "nuova
 linea", appunto, in Haskell rappresentato come `'\n'`) e dunque
-ciò che `lines` fa non è altro che spezzare l'input in
+ciò che [`lines`] fa non è altro che spezzare l'input in
 corrispondenza di tutte le occorrenze di questo carattere.
 
 La funzione `map (\line -> takeWhile (/= ' ') line)` realizza
-l'operazione di estrazione degli indirizzi IP. La funzione `map`
+l'operazione di estrazione degli indirizzi IP. La funzione [`map`]
 applicata a funzione $f$ e a una lista trasforma **ogni**
 elemento della lista usando $f$. Notiamo dunque due tratti
 distintivi di un linguaggio funzionale:
@@ -210,20 +210,20 @@ distintivi di un linguaggio funzionale:
 * è possibile definire **funzioni anonime** "al volo", laddove ve ne
   sia bisogno. Nel caso specifico, `\line -> takeWhile (/= ' ')
   line` è una funzione anonima che, applicata a una riga `line` del
-  log file, estrae il prefisso (`takeWhile`) contenente caratteri
+  log file, estrae il prefisso ([`takeWhile`]) contenente caratteri
   diversi (`/=`) dallo spazio (`' '`), che sappiamo indicare la fine
   dell'indirizzo IP. Questo costrutto prende il nome di "$\lambda$
   astrazione" per ragioni che diventeranno chiare in seguito. Il
   simbolo `\` serve proprio a richiamare la forma della lettera
   greca $\lambda$.
 
-La terza trasformazione applicata è `nub`, la funzione
-importata dal modulo `Data.List`, la quale elimina gli elementi
+La terza trasformazione applicata è [`nub`], la funzione
+importata dal modulo [`Data.List`], la quale elimina gli elementi
 duplicati da una lista. Dunque, alla fine della terza trasformazione
 abbiamo una lista di indirizzi IP in cui ciascun indirizzo non
 compare mai più di una volta.
 
-La quarta e ultima trasformazione è `length`, che ritorna la
+La quarta e ultima trasformazione è [`length`], che ritorna la
 lunghezza di una lista, ovvero il numero di elementi contenuti in
 essa. Tale numero è proprio il numero di accessi unici al sito
 Web.
@@ -231,12 +231,12 @@ Web.
 Anche per la soluzione Haskell valgono le stesse osservazioni 1--3
 già fatte per la soluzione Bash. In particolare, abbiamo ottenuto
 una trasformazione complessa **componendo** trasformazioni più
-semplici per mezzo dell'operatore `.`. Questa caratteristica di
+semplici per mezzo dell'operatore [`.`]. Questa caratteristica di
 modularità in Haskell è portata all'estremo. In particolare, anche
-`map` e `takeWhile` prese in isolamento sono a loro volta
+[`map`] e [`takeWhile`] prese in isolamento sono a loro volta
 trasformazioni semplici e molto più generiche di quanto la loro
 descrizione approssimativa data sopra non lasci intendere.  Abbiamo
-silenziosamente composto `map` e `takeWhile` insieme al predicato
+silenziosamente composto [`map`] e [`takeWhile`] insieme al predicato
 "essere un carattere diverso dallo spazio" (`/= ' '`) usando un
 meccanismo detto **applicazione parziale di funzione**, un altro
 ingrediente caratterizzante della programmazione funzionale che
@@ -262,25 +262,25 @@ Il ruolo dei tipi, soprattutto in un linguaggio "senza stato" come
 Haskell, va oltre la correttezza dei programmi. Per fare un esempio,
 si potrebbe argomentare che è possibile arrivare a una soluzione
 compatta come quella mostrata qui sopra solo sapendo dell'esistenza
-di una funzione come `lines`. Tuttavia, anche non sapendo
-dell'esistenza di `lines`, è facile intuire che nella progettazione
+di una funzione come [`lines`]. Tuttavia, anche non sapendo
+dell'esistenza di [`lines`], è facile intuire che nella progettazione
 di una catena di trasformazioni come quella usata poc'anzi occorra,
 come primo passo, una funzione che accetti in ingresso una stringa
-(di tipo `String`) e produca una lista di stringhe (di tipo
+(di tipo [`String`]) e produca una lista di stringhe (di tipo
 `[String]`). A questo punto si può usare il tipo della funzione
 desiderata come **chiave di ricerca** all'interno della libreria
 standard di Haskell, per vedere se c'è qualche funzione che ha
 questo tipo. Questa idea è stata realizzata nel [motore di ricerca
 Hoogle](https://www.haskell.org/hoogle/). Se si prova a cercare una
 funzione di tipo `String -> [String]` in Hoogle, il primo risultato
-ottenuto è proprio `lines`.  L'utilizzo dei tipi come chiavi di
+ottenuto è proprio [`lines`].  L'utilizzo dei tipi come chiavi di
 ricerca è particolarmente efficace in Haskell rispetto ad altri
 linguaggi in quanto Haskell è un linguaggio puro, in cui le funzioni
 non manipolano alcuno stato implicito. Questo significa che tutto
 ciò che le funzioni fanno di interessante "lascia una traccia" nel
-loro tipo. Per fare un paragone con `lines`, il metodo `nextLine`
+loro tipo. Per fare un paragone con [`lines`], il metodo `nextLine`
 della classe `Scanner`, che abbiamo usato nella soluzione Java, non
-ha argomenti e ritorna un valore di tipo `String`. Tuttavia, ci sono
+ha argomenti e restituisce un valore di tipo `String`. Tuttavia, ci sono
 innumerevoli metodi nella libreria standard di Java che hanno questa
 segnatura (ad esempio `toString`), proprio perché tutti questi
 metodi accedono e/o manipolano uno stato implicito del sistema o
@@ -315,7 +315,7 @@ e poi si elabora questo stream per mezzo di una catena di
 trasformazioni successive, ciascuna rappresentata da un metodo che
 viene invocato su uno stream di input e che produce un altro stream
 o, in generale, un altro valore a partire dallo stream di input.  Il
-metodo `lines`, proprio come la funzione `lines` in Haskell,
+metodo `lines`, proprio come la funzione [`lines`] in Haskell,
 trasforma lo stream di caratteri in input in uno stream di stringhe,
 una per ogni riga dell'input.  Il metodo `map` trasforma ciascuna
 riga dello stream di stringhe estraendo la sottostringa compresa tra
@@ -327,6 +327,8 @@ infatti indica anche qui una cosiddetta "$\lambda$ astrazione",
 ovvero una funzione che, applicata a una stringa `line` (a sinistra
 del simbolo `->`), produce il valore rappresentato dall'espressione
 a destra del simbolo `->`.  Il metodo `distinct` gioca lo stesso
-ruolo di `nub` in Haskell ed elimina elementi duplicati dallo stream
+ruolo di [`nub`] in Haskell ed elimina elementi duplicati dallo stream
 di input.  Infine, `count` restituisce il numero di elementi dello
 stream di input.
+
+{% include links.md %}
