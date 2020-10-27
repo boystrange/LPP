@@ -10,5 +10,6 @@ make
 
 ## Attenzione
 
-Non usare hyperlink per operatori che contengono asterischi come `*`
-e `**`
+Lo script che raccoglie i riferimenti alla libreria standard non
+funziona se si richiedono hyperlink per operatori che contengono
+asterischi come `*` e `**`.
