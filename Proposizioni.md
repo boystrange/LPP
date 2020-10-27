@@ -2,9 +2,16 @@
 title: Proposizioni logiche
 ---
 
+{% include links.md %}
+
 ## Valori booleani
 
-In Haskell le costanti di verità — detta anche **valori booleani** — sono rappresentate da `True` (vero) e `False` (falso). Si possono usare gli operatori logici di congiunzione `&&`, disgiunzione `||` e negazione `not`. Quest’ultimo è una funzione e, in quanto tale, va applicata seguendo le convenzioni standard dell’applicazione funzionale.
+In Haskell le costanti di verità — detta anche **valori booleani** —
+sono rappresentate da [`True`] (vero) e [`False`] (falso). Si possono
+usare gli operatori logici di congiunzione [`&&`], disgiunzione [`||`] e
+negazione [`not`]. Quest’ultimo è una funzione e, in quanto tale, va
+applicata seguendo le convenzioni standard dell’applicazione
+funzionale.
 
 ```haskell
 True
@@ -23,7 +30,9 @@ secondo operando viene valutato solo se necessario.
 
 ## Uguaglianza, disuguaglianza e relazioni d’ordine
 
-Gli operatori di confronto sono essenzialmente gli stessi di C e Java, con l’unica differenza che l’operatore di disuguaglianza è `/=` invece di `!=`.
+Gli operatori di confronto sono essenzialmente gli stessi di C e
+Java, con l’unica differenza che l’operatore di disuguaglianza è
+[`/=`] invece di `!=`.
 
 ```haskell
 2 == 3
@@ -46,8 +55,8 @@ if E1 then E2 else E3
 
 dove `E1` è un'espressione logica ed `E2` ed `E3` sono altre
 espressioni. Il valore dell’intera espressione dipende da quello di
-`E1`. Se questo è `True`, allora l’intera espressione ha valore
-`E2`. Se questo è `False`, allora l’intera espressione ha valore
+`E1`. Se questo è [`True`], allora l’intera espressione ha valore
+`E2`. Se questo è [`False`], allora l’intera espressione ha valore
 `E3`. Ad esempio, la funzione `assoluto` che calcola il valore
 assoluto del suo argomento può essere realizzata nel modo seguente:
 
@@ -73,7 +82,7 @@ if 2 == 2 then False else True
 
 Affinché un’espressione della forma `if E1 then E2 else E3` sia
 corretta, è necessario che `E1` sia un'espressione logica -- ovvero
-il cui valore sia di tipo `Bool` -- e che `E2` ed `E3` producano
+il cui valore sia di tipo [`Bool`] -- e che `E2` ed `E3` producano
 valori dello stesso tipo. Le seguenti espressioni sono errate:
 
 ```haskell
@@ -81,7 +90,7 @@ if 1 then True else False
 if True then 1 else False
 ```
 
-Non è possibile omettere il ramo `else` di un’espressione
+Non è possibile omettere il ramo `else` di un'espressione
 condizionale, in quanto deve essere sempre specificato qual è il
 valore prodotto dall’espressione a prescindere dal valore della
 condizione.  L’espressione condizionale `if E1 then E2 else E3` è
@@ -103,16 +112,16 @@ linguaggi come C e Java.
    1 <= 0 || 0 <= 1
    ```
    {:.solution}
-3. Concepire una espressione logica per appurare che `&&` è davvero
+3. Concepire una espressione logica per appurare che [`&&`] è davvero
    cortocircuitato. Suggerimento: individuare una espressione che,
    se valutata, genera un errore (es. una divisione per zero) e
-   usare tale espressione in una condizione formulata usando `&&` e
-   `||`.
+   usare tale espressione in una condizione formulata usando [`&&`] e
+   [`||`].
    ```haskell
    False && (1 `div` 0 == 0)
    ```
    {:.solution}
-4. Ripetere l’esercizio precedente con l’operatore `||`.
+4. Ripetere l’esercizio precedente con l’operatore [`||`].
    ```haskell
    True || (1 `div` 0 == 0)
    ```

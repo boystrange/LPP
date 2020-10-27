@@ -9,6 +9,8 @@ tex_macros: |
   \newcommand{\RETURN}{\mathtt{RETURN}}
 ---
 
+{% include links.md %}
+
 ## Descrizione del problema
 
 In questo caso di studio realizziamo un esecutore per la Java
@@ -80,9 +82,9 @@ type Frame = [Value]
 
 In questa versione della JVMM gli unici valori sono numeri interi,
 dunque il tipo `Value` non è altro che un nome alternativo (e più
-significativo) del tipo `Int`. Come nella JVM, si accede alle
+significativo) del tipo [`Int`]. Come nella JVM, si accede alle
 variabili memorizzate in un frame attraverso il loro indice, per cui
-definiamo `Var` come alias per `Int`. Infine, possiamo usare le
+definiamo `Var` come alias per [`Int`]. Infine, possiamo usare le
 liste come comoda rappresentazine per stack e frame della JVMM, che
 non sono altro che collezioni di valori.
 

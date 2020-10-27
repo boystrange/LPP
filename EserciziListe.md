@@ -2,12 +2,14 @@
 title: Esercizi sulle liste
 ---
 
+{% include links.md %}
+
 ## Esercizi su liste
 
 1. Definire una funzione ricorsiva che, applicata a una lista non
-   vuota di numeri $[a_1, a_2, \dots, a_n]$, restituisca `True` se
+   vuota di numeri $[a_1, a_2, \dots, a_n]$, restituisca [`True`] se
    l'ultimo elemento è uguale alla somma di quelli che lo precedono
-   (ovvero se $a_1 + a_2 + \cdots + a_{n-1} = a_n$) e `False` altrimenti. Non
+   (ovvero se $a_1 + a_2 + \cdots + a_{n-1} = a_n$) e [`False`] altrimenti. Non
    è consentito l'uso di funzioni della libreria standard di
    Haskell.
    ^
@@ -34,7 +36,7 @@ title: Esercizi sulle liste
    lunghezza massima.  Per esempio, tale funzione applicata a $[[],
    [3,4], [1,8,4], [3], [2,5], [9,8,4]]$ deve produrre $[[1,8,4],
    [9,8,4]]$.  Non è consentito l'uso della
-   ricorsione. Suggerimento: usare la funzione di libreria `maximum`.
+   ricorsione. Suggerimento: usare la funzione di libreria [`maximum`].
    ^
    ``` haskell
    piuLunga :: [[a]] -> [[a]]
@@ -43,7 +45,7 @@ title: Esercizi sulle liste
        m = maximum (map length xs)
    ```
    {:.solution}
-4. Ridefinire `map :: (a -> b) -> [a] -> [b]` in termini di `foldr`
+4. Ridefinire `map :: (a -> b) -> [a] -> [b]` in termini di [`foldr`]
    e senza fare uso esplicito della ricorsione.
    ^
    ``` haskell
@@ -52,7 +54,7 @@ title: Esercizi sulle liste
    ```
    {:.solution}
 5. Ridefinire `filter :: (a -> Bool) -> [a] -> [a]` in termini di
-   `foldr` e senza fare uso della ricorsione esplicita.
+   [`foldr`] e senza fare uso della ricorsione esplicita.
    ^
    ``` haskell
    myFilter :: (a -> Bool) -> [a] -> [a]
@@ -71,7 +73,7 @@ $[4,2]$ e $[3,0,1]$ sono sotto-liste di $[2,3,4,0,1,2]$ e $[]$ è una
 sotto-lista di quasiasi altra lista.
 
 1. Definire una funzione che, applicata a due liste $l_1$ ed $l_2$,
-   restituisca `True` se $l_1$ è sotto-lista di $l_2$ e `False`
+   restituisca [`True`] se $l_1$ è sotto-lista di $l_2$ e [`False`]
    altrimenti.
    ^
    ``` haskell
@@ -84,7 +86,7 @@ sotto-lista di quasiasi altra lista.
    {:.solution}
 2. Definire una funzione che, applicata a una lista $l$, generi la
    lista di tutte le sotto-liste di $l$.  Non è consentito l'uso di
-   funzioni della libreria standard di Haskell eccetto `map` e `++`.
+   funzioni della libreria standard di Haskell eccetto [`map`] e [`++`].
    ^
    ``` haskell
    sottoListe :: [a] -> [[a]]

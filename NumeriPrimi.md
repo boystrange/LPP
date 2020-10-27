@@ -2,6 +2,8 @@
 title: La lista infinita dei numeri primi
 ---
 
+{% include links.md %}
+
 In questo caso di studio illustriamo come la *laziness* di Haskell
 consenta la scrittura di programmi modulari laddove è solitamente
 necessario intercalare operazioni di **produzione** e **selezione**
@@ -97,9 +99,9 @@ naturali a partire da 2, da questa selezionare solo i numeri primi e
 poi troncare la lista risultante considerando solo i primi $n$
 elementi.
 
-Nella libreria standard di Haskell è presente la funzione `enumFrom`
+Nella libreria standard di Haskell è presente la funzione [`enumFrom`]
 che genera la lista degli elementi di un tipo appartenente alla
-classe `Enum` a partire dall'elemento dato come argomento della
+classe [`Enum`] a partire dall'elemento dato come argomento della
 funzione.
 
 ``` haskell
@@ -109,22 +111,22 @@ enumFrom n = n : enumFrom (succ n)
 
 In un linguaggio di programmazione convenzionale -- cioè che usa
 l'ordine **applicativo** per la riduzione delle espressioni --
-questa definizione di `enumFrom` sarebbe inutilizzabile. Infatti,
+questa definizione di [`enumFrom`] sarebbe inutilizzabile. Infatti,
 notiamo che `enumFrom n` produce una lista che ha `n` come testa e
 il risultato di `enumFrom (succ n)` come coda. L'ordine applicativo
 richiederebbe la valutazione di `enumFrom (succ n)` **prima** di
 dell'applicazione del costruttore `(:)` per produrre la lista
-risultante. Dal momento che `enumFrom` produce (in generale) una
+risultante. Dal momento che [`enumFrom`] produce (in generale) una
 lista infinita, questa valutazione non avrebbe mai fine e non si
 otterrebbe alcun risultato o, più probabilmente, un errore come
 *stack overflow* causato dalle troppe applicazioni ricorsive di
-`enumFrom`.
+[`enumFrom`].
 
-In Haskell, la definizione di `enumFrom` è utile dal momento che
+In Haskell, la definizione di [`enumFrom`] è utile dal momento che
 l'argomento `enumFrom (succ n)` di `(:)` è valutato solo se
 necessario. Per convincerci di questo fatto è possibile fare alcuni
 semplici esperimenti in cui accediamo a una porzione **finita**
-della lista prodotta da `enumFrom`:
+della lista prodotta da [`enumFrom`]:
 
 ``` haskell
 head (enumFrom 2)        -- il primo elemento di enumFrom 2
@@ -156,7 +158,7 @@ selezionano solo i numeri primi con `filter primo`. Della lista
 risultante, si seleziona solo il prefisso di lunghezza `n` con `take
 n`. Da notare che entrambe le liste `enumFrom 2` che `filter primo
 (enumFrom 2)` sono potenzialmente infinite e vengono materialmente
-prodotte "a richiesta" fintantoché `take` non ha selezionato `n`
+prodotte "a richiesta" fintantoché [`take`] non ha selezionato `n`
 numeri primi.
 
 ## Esercizi
@@ -191,7 +193,7 @@ numeri primi.
    {:.solution}
 3. Che caratteristica ha la lista `xs` definita nel seguente modo?
    Per rispondere, consultare la documentazione della funzione di
-   libreria `zipWith` e usare `take` per esaminare `xs`.
+   libreria [`zipWith`] e usare [`take`] per esaminare `xs`.
    ^
    ``` haskell
    xs :: [Integer]
