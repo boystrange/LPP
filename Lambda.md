@@ -2,6 +2,8 @@
 title: Funzioni anonime e sezioni
 ---
 
+{% include links.md %}
+
 In Haskell le funzioni sono *entità di prima classe*, nel senso che
 è possibile usare le funzioni come ogni altro tipo di dato. È
 possibile scrivere funzioni che accettano funzioni come argomento,
@@ -77,8 +79,8 @@ suoi due argomenti. A titolo di esempio, le espressioni
 ```
 
 sono sezioni. Nella prima è stato omesso l'operando destro
-dell'operatore `+`. Nella seconda è stato omesso l'operando sinistro
-dell'operatore `mod`.
+dell'operatore [`+`]. Nella seconda è stato omesso l'operando sinistro
+dell'operatore [`mod`].
 
 Le sezioni rappresentano funzioni il cui argomento è l'operando
 mancante. Pertanto, le due sezioni illustrate qui sopra
@@ -112,7 +114,7 @@ Occorre prestare attenzione al fatto che la funzione risultante
 dall'espansione può variare in base alla proprietà di
 **commutatività** dell'operatore. Per esempio, `(1 +)` e `(+ 1)`
 sono sezioni diverse che però rappresentano sempre la funzione
-"successore", in quando l'operatore `+` è commutativo. Al contrario,
+"successore", in quando l'operatore [`+`] è commutativo. Al contrario,
 le sezioni ``(`mod` 2)`` e ``(2 `mod`)`` rappresentano funzioni
 diverse.
 
@@ -130,7 +132,7 @@ diverse.
    \x -> if x >= 0 then x else negate x
    ```
    {:.solution}
-3. Ricordando che `.` è l'operatore di composizione funzionale,
+3. Ricordando che [`.`] è l'operatore di composizione funzionale,
    descrivere a parole le seguenti funzioni. Verificare le proprie
    risposte valutando in GHCi alcune applicazioni delle funzioni
    indicate. Suggerimento: può essere d'aiuto espandere le sezioni

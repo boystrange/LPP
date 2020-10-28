@@ -2,6 +2,8 @@
 title: Integrazione numerica
 ---
 
+{% include links.md %}
+
 Com'è noto, è possibile approssimare l'integrale di una funzione
 $f$ in un intervallo $[a, b]$ con la somma delle aree di $n$ trapezi
 usando la formula
@@ -166,12 +168,12 @@ $n+1$ numeri naturali con l'espressione `[0..n]`.
 
 Successivamente, calcoliamo la lista $[z_0, z_1, \dots, z_n]$ di
 campioni trasformando la lista $[0, 1, \dots, n]$ per mezzo di
-`map`. La trasformazione che ci occorre in questo caso è data dalla
+[`map`]. La trasformazione che ci occorre in questo caso è data dalla
 $\lambda$-astrazione $\lambda i.f(a + ih)$ che calcola l'ascissa
 dell'$i$-esimo punto di campionatura $a + ih$ ed applica $f$ per
 ottenere lo $z_i$ corrispondente. Si noti che nel codice Haskell è
-necessario usare `fromIntegral` per promuovere $i$ di tipo intero a
-`Double`. Chiamiamo `zs` la lista $[z_0, z_1, \dots, z_n]$ di
+necessario usare [`fromIntegral`] per promuovere $i$ di tipo intero a
+[`Double`]. Chiamiamo `zs` la lista $[z_0, z_1, \dots, z_n]$ di
 campioni ottenuta e osserviamo che, in questa prima fase, siamo
 stati facilitati dal fatto che c'è una relazione diretta tra i
 numeri naturali nella lista $[0,1,\dots,n]$ ed i campioni $z_i$ in
@@ -182,11 +184,11 @@ complicata in quanto ogni area $A_i$ è determinata non da *uno*
 bensì da *due* campioni $z_{i-1}$ e $z_i$. Non essendoci una
 relazione diretta tra gli elementi di `zs` e le aree $A_i$ che
 vogliamo ottenere, non è chiaro come esprimere questa trasformazione
-usando `map`, che trasforma singoli elementi di una lista in modo
+usando [`map`], che trasforma singoli elementi di una lista in modo
 indipendente uno dall'altro.  L'osservazione fondamentale in questo
 caso è che gli elementi $z_{i-1}$ e $z_i$ che servono per
 determinare $A_i$ sono sempre **adiacenti** in `zs`. In particolare,
-possiamo usare la funzione di libreria `zip`
+possiamo usare la funzione di libreria [`zip`].
 
 ``` haskell
 :type zip
@@ -195,23 +197,23 @@ possiamo usare la funzione di libreria `zip`
 per accoppiare gli elementi delle liste `zs` e `tail zs`, ottenendo
 una lista $[(z_0, z_1), (z_1, z_2), \dots, (z_{n-1}, z_n)]$ di
 coppie di elementi adiacenti in `zs`. Notiamo che tale lista ha solo
-$n$ elementi, mentre `zs` ne ha $n + 1$, in quanto `zip` "tronca" il
+$n$ elementi, mentre `zs` ne ha $n + 1$, in quanto [`zip`] "tronca" il
 risultato se una delle due liste che vengono accoppiate ha meno
-elementi dell'altra. Questo comportamento di `zip` fa al caso nostro
+elementi dell'altra. Questo comportamento di [`zip`] fa al caso nostro
 perché ora possiamo mettere in corrispondenza ogni coppia $(z_{i-1},
 z_i)$ con un'area $A_i$ e le aree sono proprio $n$.
 
 Ottenere la lista delle aree $[A_1, A_2, \dots, A_n]$ ora è facile
-applicando `map` alla trasformazione $\lambda(x,y).(x + y)h/2$ che
+applicando [`map`] alla trasformazione $\lambda(x,y).(x + y)h/2$ che
 calcola l'area di un singolo trapezio con basi $x$ e $y$ ed altezza
 $h$.  Non resta che sommare tra loro tutte le aree $A_i$, somma che
 si può ottenere con una singola applicazione della funzione di
-libreria `sum`.
+libreria [`sum`].
 
 ## Esercizi
 
 Per la risoluzione dei seguenti esercizi può essere d'aiuto usare la
-funzione di libreria `uncurry`.
+funzione di libreria [`uncurry`].
 
 1. Senza fare uso esplicito della ricorsione, definire le seguenti funzioni:
    1. `match :: Eq a => [a] -> [a] -> Bool` per determinare se due
@@ -253,23 +255,21 @@ funzione di libreria `uncurry`.
 	  {:.solution}
 2. Usando la definizione di `ordinata` data nelle soluzioni si
    osserva che la valutazione di `ordinata []` produce
-   (correttamente) `True`, nonostante `ordinata` applichi `tail`
+   (correttamente) [`True`], nonostante `ordinata` applichi [`tail`]
    alla lista vuota. Come si spiega questo fenomeno?
    ^
 
    > Occorre tenere presente che Haskell è un linguaggio pigro, cioè
    > in cui gli argomenti di una funzione vengono valutati solo se
-   > necessario. Consultando la [documentazione della funzione
-   > `zip`](http://hackage.haskell.org/package/base-4.10.0.0/docs/Prelude.html#v:zip)
-   > o esaminandone la
+   > necessario. Consultando la documentazione di [`zip`] o
+   > esaminandone la
    > [definizione](http://hackage.haskell.org/package/base-4.10.0.0/docs/src/GHC.List.html#zip)
-   > si evince che `zip` è "pigra a destra", ovvero valuta il
-   > secondo argomento solo se il primo è diverso da
-   > `[]`. Per questo motivo, la valutazione di `ordinata []` non
-   > produce un errore nonostante la definizione di `ordinata`
-   > contenga un'applicazione `tail []`, in quanto questa
-   > espressione compare proprio come secondo argomento di zip e non
-   > è necessario valutarla per determinare che `zip [] (tail []) =
-   > []`.
-   {:.solution}
+   > si evince che [`zip`] è "pigra a destra", ovvero valuta il
+   > secondo argomento solo se il primo è diverso da `[]`. Per
+   > questo motivo, la valutazione di `ordinata []` non produce un
+   > errore nonostante la definizione di `ordinata` contenga
+   > un'applicazione `tail []`, in quanto questa espressione compare
+   > proprio come secondo argomento di zip e non è necessario
+   > valutarla per determinare che `zip [] (tail []) = []`.
+   > {:.solution}
 

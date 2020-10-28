@@ -2,6 +2,8 @@
 title: Funzioni a più argomenti e applicazione parziale
 ---
 
+{% include links.md %}
+
 In Haskell ogni funzione ha *esattamente un argomento*. La tecnica
 per rappresentare funzioni che lavorano su due o più argomenti è
 detta **currying** e consiste nel rappresentare una funzione a $n$
@@ -79,10 +81,10 @@ rappresentazione di funzioni a più argomenti.
 
 Una volta svelata la natura di `addizione`, possiamo interpretarne
 correttamente il tipo `Int -> Int -> Int`. Ora sappiamo che
-`addizione` è una funzione che, applicata a un numero di tipo `Int`,
+`addizione` è una funzione che, applicata a un numero di tipo [`Int`],
 produce una funzione la quale, applicata a un altro numero di tipo
-`Int`, produce un numero di tipo `Int`. In altre parole, `addizione`
-ha dominio `Int` e codominio `Int -> Int`. Scopriamo dunque che il
+[`Int`], produce un numero di tipo [`Int`]. In altre parole, `addizione`
+ha dominio [`Int`] e codominio `Int -> Int`. Scopriamo dunque che il
 tipo freccia `->` è **associativo a destra** e che il tipo
 
 ``` haskell
@@ -197,7 +199,7 @@ che facilita il riuso del codice.
 
 2. Definire una funzione `potenza :: Int -> Int -> Int` che,
    applicata a due numeri interi $m$ ed $n$ con $n \geq 0$, calcoli
-   $m^n$ senza fare uso degli operatori `^` e `**` di Haskell.
+   $m^n$ senza fare uso degli operatori [`^`] e `**` di Haskell.
    ```haskell
    potenza :: Int -> Int -> Int
    potenza _ 0 = 1

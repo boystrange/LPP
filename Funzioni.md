@@ -124,5 +124,5 @@ composizione di [`not`] e `pari`.
    ```
    {:.solution}
 5. Che funzione è `not . not`?
-   > La funzione identità su valori di tipo `Bool`.
+   > La funzione identità su valori di tipo [`Bool`].
    {:.solution}

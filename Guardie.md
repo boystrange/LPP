@@ -2,6 +2,8 @@
 title: Funzioni con guardie
 ---
 
+{% include links.md %}
+
 Capita spesso che il valore prodotto da una funzione debba essere
 calcolato in modo diverso a seconda di qualche proprietà
 dell'argomento. Per esempio, la funzione che calcola il valore
@@ -32,7 +34,7 @@ non è necessario.
 
 Quando si applica una funzione con guardie a un argomento, Haskell
 usa la prima equazione (dall'alto verso il basso) la cui guardia ha
-valore `True` per determinare il valore prodotto dalla funzione.
+valore [`True`] per determinare il valore prodotto dalla funzione.
 
 ```haskell
 assoluto 3
@@ -42,7 +44,7 @@ assoluto (negate 3)
 Quando si usa un blocco di guardie **esaustive**, cioè che coprono
 tutte le possibilità, l'ultima guardia svolge una funzione analoga a
 quella del ramo `else` di un'espressione condizionale, in quanto il
-suo valore deve essere necessariamente `True`. Nel caso della
+suo valore deve essere necessariamente [`True`]. Nel caso della
 funzione `assoluto`, ad esempio, è evidente che se la condizione $n
 \geq 0$ è falsa, allora la condizione $n < 0$ deve essere vera. Da
 questo punto di vista, controllare che effettivamente $n$ sia
@@ -55,7 +57,7 @@ assoluto n | n >= 0    = n
            | otherwise = negate n
 ```
 
-in cui la guardia `otherwise` si applica se la prima (in generale,
+in cui la guardia [`otherwise`] si applica se la prima (in generale,
 tutte quelle precedenti) sono false.
 
 ## Esercizi
@@ -95,7 +97,7 @@ tutte quelle precedenti) sono false.
    seconda implementazione di `assoluto` per comprenderne il
    funzionamento.
 
-   > L'espressione `otherwise` non è altro che un nome alternativo
-   > per la costante `True`, dunque può essere usata come "ultima
+   > L'espressione [`otherwise`] non è altro che un nome alternativo
+   > per la costante [`True`], dunque può essere usata come "ultima
    > guardia" sempre verificata.
    {:.solution}

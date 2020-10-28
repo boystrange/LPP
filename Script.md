@@ -128,7 +128,7 @@ il comando `:reload` o `:r` al prompt di `ghci`.
    f2 :: Int
    f2 = f0 + f1
    ```
-   Si noti l’uso del tipo `Int` per la dichiarazione di nomi il cui
+   Si noti l’uso del tipo [`Int`] per la dichiarazione di nomi il cui
    tipo è un numero intero. Aggiungere allo script le definizioni
    per i nomi da `f3` a `f7`. Usare `ghci` per verificare che tali
    nomi siano effettivamente associati al corrispondente numero

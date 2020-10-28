@@ -2,6 +2,8 @@
 title: Dall'iterazione alla ricorsione
 ---
 
+{% include links.md %}
+
 ## Descrizione del problema
 
 In Haskell, lo strumento fondamentale per la realizzazione di
@@ -193,7 +195,7 @@ localmente definita. Notiamo inoltre la solita corrispondenza tra
 casi base di `aux` e condizioni di terminazione del ciclo nella
 versione Java di `primo`. Il ciclo termina se `k >= n`, nel qual
 caso abbiamo testato tutti i candidati divisori di `n` senza
-trovarne alcuno, e dunque ritorniamo `True` o `False` a seconda che
+trovarne alcuno, e dunque ritorniamo [`True`] o [`False`] a seconda che
 `k` sia uguale o maggiore di `n`, rispettivamente. Il ciclo termina
 anche se `k` divide `n`, il che significa che abbiamo trovato un
 divisore di `n` e dunque possiamo concludere che `n` non è primo. Il

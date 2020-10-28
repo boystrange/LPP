@@ -2,6 +2,8 @@
 title: Funzioni ricorsive
 ---
 
+{% include links.md %}
+
 In Haskell non ci sono comandi di assegnamento o comandi
 iterativi. L’unico modo per esprimere computazioni ripetute è per
 mezzo di funzioni ricorsive, ovvero funzioni in cui il valore
@@ -115,7 +117,7 @@ fibonacci 10
 
 2. Definire una funzione `pow2 :: Int -> Int` che, applicata a un
    numero intero $n$ non negativo, calcoli $2^n$ senza usare gli
-   operatori `^` e `**` di Haskell.
+   operatori [`^`] e `**` di Haskell.
    ```haskell
    pow2 :: Int -> Int
    pow2 0 = 1
@@ -135,8 +137,8 @@ fibonacci 10
    {:.solution}
 
 4. Definire una funzione `potenzaDi2 :: Int -> Bool` che, applicata a un
-   numero intero $n$ non negativo, restituisca `True` se $n$ è una
-   potenza di 2 e `False` altrimenti.
+   numero intero $n$ non negativo, restituisca [`True`] se $n$ è una
+   potenza di 2 e [`False`] altrimenti.
    ```haskell
    potenzaDi2 :: Int -> Bool
    potenzaDi2 0 = False
