@@ -164,7 +164,7 @@ Da notare che i costruttori `OP` e `IF` hanno un argomento di tipo
 funzione che rappresenta l'operazione binaria (nel caso di `OP`) o
 la relazione (nel caso di `IF`).  In particolare, modelliamo una
 relazione binaria come una funzione a due argomenti e codominio
-`Bool`.
+[`Bool`].
 
 ## Realizzazione dell'esecutore
 
@@ -320,4 +320,3 @@ run fibonacci [10]
 Le soluzioni degli esercizi sono incluse nel file
 [JVMM.hs](assets/haskell/JVMM.hs) che contiene il codice discusso
 in questo caso di studio.
-

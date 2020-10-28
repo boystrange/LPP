@@ -4,58 +4,35 @@ title: Enumerazioni
 
 {% include links.md %}
 
-Una **enumerazione** è un nuovo tipo di dato i cui valori sono
-definiti dall'utente. In questa scheda motiviamo l'esigenza di
-definire nuovi tipi di dato e illustriamo il meccanismo base per
-definire e usare enumerazioni.
+Una **enumerazione** è un tipo di dato i cui valori sono in numero
+finito e dunque enumerati al momento della definizione del tipo di
+dato. Il tipo [`Bool`] è un esempio di enumerazione i cui valori
+sono [`False`] e [`True`]. In questa scheda vediamo come definire
+una nuova enumerazione.
 
-## Motivazione all'introduzione di nuovi tipi di dato
+## Definizione di una enumerazione
 
 Supponiamo di voler realizzare una funzione `morra` che determini il
 vincitore di due giocatori che si sfidano alla [morra
 cinese](https://it.wikipedia.org/wiki/Morra_cinese). La funzione ha
 due argomenti con le **mosse** dei due giocatori e restituisce un
-numero tra 0, 1 o 2 a seconda che il gioco finisca in parità (le
-due liste sono uguali) o che vinca uno dei due giocatori.  Si pone
-immediatamente il problema di come **rappresentare** le mosse del
-gioco, che nel caso specifico sono di **tre tipi**: **sasso** <i
-class="far fa-hand-rock"></i>, **carta** <i class="far
-fa-hand-paper"></i> e **forbice** <i class="far
-fa-hand-scissors"></i>.
-
-La soluzione più ovvia -- quella di utilizzare i numeri interi 0,
-1 e 2 -- ha diversi svantaggi:
-
-1. Il codice è **complesso**. Per esempio, siccome ci sono molti più
-   numeri che mosse, occorre considerare ogni numero diverso da 0, 1
-   e 2 come una "mossa non valida" e gestire questa eventualità
-   nella funzione `morra`.
-2. Il codice è **fragile** poiché c'è il rischio di confondere
-   numeri che rappresentano "numeri" con numeri che rappresentano
-   "mosse". In particolare, diventa possibile "sommare mosse" e
-   usare "somme di numeri" nelle liste passate alla funzione `morra`
-   anche se queste operazioni difficilmente hanno senso logico.
-3. Il programma è **difficile da leggere** in quanto per distinguere
-   un "numero vero" da un "numero mossa" occorre considerare del
-   contesto in cui il numero compare.
-
-## Definizione di un nuovo tipo di dato
-
-Il programmatore può definire un nuovo tipo di dato per
-rappresentare esplicitamente le mosse nel gioco della morra cinese.
+numero tra 0, 1 o 2 a seconda che il gioco finisca in parità (le due
+liste sono uguali) o che vinca uno dei due giocatori. Siccome le
+mosse del gioco sono di tre tipi, possiamo rappresentarle definendo
+la seguente enumerazione:
 
 ```haskell
 data Mossa = Sasso | Carta | Forbici
 ```
 
 La definizione è introdotta dalla parola chiave `data` seguita dal
-nome del tipo, dal simbolo `=` e dall'elenco dei **costruttori** del
-tipo di dato. Il nome del tipo definito (nell'esempio, `Mossa`) deve
-iniziare con una lettera maiuscola e può essere usato ovunque possa
-comparire un tipo. I costruttori devono iniziare con una lettera
-maiuscola e possono essere usati per costruire *valori* di tipo
-`Mossa`. Nel caso specifico, `Sasso`, `Carta` e `Forbici` sono
-**tutti e soli** i valori di tipo `Mossa`.
+nome scelto per il tipo, dal simbolo `=` e dall'elenco dei
+**costruttori** del tipo di dato. Il nome del tipo definito
+(nell'esempio, `Mossa`) deve iniziare con una lettera maiuscola e
+può essere usato ovunque possa comparire un tipo. I costruttori
+devono iniziare con una lettera maiuscola e possono essere usati per
+costruire *valori* di tipo `Mossa`. Nel caso specifico, `Sasso`,
+`Carta` e `Forbici` sono **tutti e soli** i valori di tipo `Mossa`.
 
 ``` haskell
 :type Sasso
@@ -165,10 +142,10 @@ morra [Sasso,Carta,Sasso] [Sasso,Carta,Forbici]
 
 ## Il tipo unitario
 
-Un caso estremo di enumerazione è quello in cui vi è un solo
-costruttore. Tale enumerazione prende il nome di "tipo
-unitario". Haskell usa la sintassi [`()`] per indicare sia il tipo
-unitario che il suo unico costruttore. In altre parole, il tipo
+Un caso estremo di enumerazione che useremo in seguito è quello in
+cui vi è un solo costruttore. Tale enumerazione prende il nome di
+"tipo unitario". Haskell usa la sintassi [`()`] per indicare sia il
+tipo unitario che il suo unico costruttore. In altre parole, il tipo
 unitario sarebbe definito così:
 
 ``` haskell
@@ -186,14 +163,7 @@ termina o produce [`()`].
 
 ## Esercizi
 
-1. Il tipo `Bool` non è altro che un'enumerazione! Definirla
-   esplicitamente come tale.
-   ^
-   ``` haskell
-   data Bool = False | True
-   ```
-   {:.solution}
-2. Definire un tipo `PuntoCardinale` con i costruttori `Nord`,
+1. Definire un tipo `PuntoCardinale` con i costruttori `Nord`,
    `Sud`, `Ovest` ed `Est`. Definire le funzioni `sinistra ::
    PuntoCardinale -> PuntoCardinale`, `destra :: PuntoCardinale ->
    PuntoCardinale` e `indietro :: PuntoCardinale -> PuntoCardinale`
@@ -216,7 +186,7 @@ termina o produce [`()`].
    indietro = sinistra . sinistra
    ```
    {:.solution}
-3. Definire un tipo `Giorno` i cui costruttori sono i giorni della
+2. Definire un tipo `Giorno` i cui costruttori sono i giorni della
    settimana `Lun`, `Mar`, `Mer`, `Gio`, `Ven`, `Sab`, `Dom` poi
    definire le seguenti funzioni:
    * `domani :: Giorno -> Giorno`.
@@ -248,7 +218,7 @@ termina o produce [`()`].
    fra_replicate n = foldr (.) id (replicate n domani)
    ```
    {:.solution}
-4. La classe [`Ord`] ha anche una funzione [`compare`] che restituisce
+3. La classe [`Ord`] ha anche una funzione [`compare`] che restituisce
    un valore di tipo [`Ordering`]. Esaminando il tipo di [`compare`] e
    la definizione di [`Ordering`] (con `:info Ordering`) descrivere
    comportamento e utilità di [`compare`].
@@ -265,7 +235,7 @@ termina o produce [`()`].
    > che più volte (prima con [`<`], poi con [`>`] e infine con `==`)
    > per capire in che relazione sono.
    {:.solution}
-5. In un linguaggio di programmazione *puro* come Haskell, in cui le
+4. In un linguaggio di programmazione *puro* come Haskell, in cui le
    funzioni non possono avere effetti collaterali, il tipo [`()`] è
    apparentemente inutile. Perché? Si pensi ad esempio a funzioni di
    tipo `() -> T` o `T -> ()`.
