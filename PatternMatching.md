@@ -2,6 +2,8 @@
 title: Pattern Matching
 ---
 
+{% include links.md %}
+
 Come abbiamo già visto con le funzioni ricorsive, è possibile
 definire funzioni usando più equazioni, ciascuna identificata da un
 **pattern** che indica la forma dell'argomento a cui quell'equazione
@@ -51,7 +53,7 @@ comportamento della funzione.
 nella struttura delle liste. A titolo di esempio, supponiamo di
 voler scrivere una funzione per determinare se una lista è ordinata
 in modo non decrescente. Quando la lista è vuota o contiene un solo
-elemento la risposta è banalmente `True`, ma quando la lista
+elemento la risposta è banalmente [`True`], ma quando la lista
 contiene due o più elementi è necessario confrontare **i primi due
 elementi** della lista per vedere se soffisfano la relazione
 d'ordine. Possiamo realizzare la funzione con un pattern matching
@@ -80,7 +82,7 @@ ordinata [1, 2, 0]
 
 Supponiamo di voler scrivere una funzione `stessaLunghezza` che
 determina se due liste di interi hanno la stessa lunghezza. Potremmo
-sfruttare la funzione di libreria `length` e ottenere
+sfruttare la funzione di libreria [`length`] e ottenere
 
 ``` haskell
 stessaLunghezza :: [Int] -> [Int] -> Bool
@@ -93,7 +95,7 @@ realizzazione proposta di `stessaLunghezza` potrebbe essere
 svantaggiosa nel momento in cui una delle due liste è più lunga
 dell'altra. Per esempio, se una lista è vuota e l'altra ha 100000
 elementi, si paga un costo proporzionale a 100000 laddove si
-potrebbe rispondere immediatamente `False`.
+potrebbe rispondere immediatamente [`False`].
 
 Una realizzazione alternativa e più efficiente di `stessaLunghezza`
 è illustrata qui sotto, in cui entrambe le liste da misurare sono
@@ -108,13 +110,13 @@ stessaLunghezza (_ : xs) (_ : ys) = stessaLunghezza xs ys
 ```
 
 La prima equazione si applica quando entrambe le liste sono vuote,
-nel qual caso hanno la stessa lunghezza e la risposta è `True`. La
+nel qual caso hanno la stessa lunghezza e la risposta è [`True`]. La
 seconda e la terza equazione si applicano quanto una delle due liste
 è vuota e l'altra no. Il pattern `_` corrisponde a ogni lista
 possibile, ma siccome il caso in cui entrambe sono vuote è già
 gestito dalla prima equazione e le equazioni sono provate dall'alto
 verso il basso, in queste equazioni `_` corrisponde necessariamente
-a liste non vuote per cui il risultato è `False`. Infine, l'ultima
+a liste non vuote per cui il risultato è [`False`]. Infine, l'ultima
 equazione si applica quando nessuna delle due liste è vuota. In
 questo caso, la risposta è determinata dall'applicazione ricorsiva
 di `stessaLunghezza` alla coda delle due liste.
@@ -128,7 +130,7 @@ stessaLunghezza [1, 2, 3] [4, 5, 6]
 ## Esercizi
 
 1. Riscrivere la lista `[1, 2, 3]` in tutti modi possibili come
-   concatenazione (con `++`) di due liste.
+   concatenazione (con [`++`]) di due liste.
    ``` haskell
           [] ++ [1, 2, 3]
          [1] ++ [2, 3]
@@ -142,7 +144,7 @@ stessaLunghezza [1, 2, 3] [4, 5, 6]
    > Si otterrebbe una funzione che confronta gli elementi della
    > lista a coppie, ma senza controllare che gli elementi di coppie
    > diverse siano in relazione. Per esempio, avremmo `ordinata [1,
-   > 2, 0] == True` quando invece la risposta deve essere `False`.
+   > 2, 0] == True` quando invece la risposta deve essere [`False`].
    {:.solution}
 3. Un caso estremo in cui le due definizioni date di
    `stessaLunghezza` si comportano in modo differente è il seguente:
@@ -153,14 +155,14 @@ stessaLunghezza [1, 2, 3] [4, 5, 6]
 
    Giustificare il diverso comportamento.
 
-   > La seconda lista è infinita e la funzione `length` non termina
+   > La seconda lista è infinita e la funzione [`length`] non termina
    > (o esaurisce la memoria) nel vano tentativo di calcolarne la
    > lunghezza. Tuttavia, essendo la prima lista vuota, le due liste
    > hanno chiaramente lunghezze diverse. Per questo motivo, la
    > seconda definizione di `stessaLunghezza` è in grado di
    > rispondere correttamente in questo caso.
    {:.solution}
-4. Senza fare uso della funzione `product` della libreria standard,
+4. Senza fare uso della funzione [`product`] della libreria standard,
    definire una funzione ricorsiva `prodotto :: [Int] -> Int` che,
    applicata a una lista di numeri interi, calcoli il prodotto di
    tutti i numeri nella lista.
@@ -172,7 +174,7 @@ stessaLunghezza [1, 2, 3] [4, 5, 6]
    {:.solution}
 5. Definire una funzione `inverti :: [Int] -> [Int]` che, applicata
    a una lista di numeri $[a_1, a_2, \dots, a_n]$, ne calcoli la
-   **lista inversa** $[a_n, \dots, a_2, a_1]$. **Suggerimento**: usare `++`.
+   **lista inversa** $[a_n, \dots, a_2, a_1]$. **Suggerimento**: usare [`++`].
    ```haskell
    inverti :: [Int] -> [Int]
    inverti []       = []

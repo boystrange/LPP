@@ -2,6 +2,8 @@
 title: Liste
 ---
 
+{% include links.md %}
+
 Una **lista** è una sequenza **omogenea** di elementi. Il fatto che
 la sequenza sia omogenea significa che gli elementi della lista
 hanno tutti lo stesso tipo. In questa scheda illustriamo alcuni modi
@@ -134,7 +136,7 @@ length [1, 2, 3]
 length [True, False]
 ```
 
-Come evidenziato dall’ultimo esempio, `length` può essere applicata
+Come evidenziato dall’ultimo esempio, [`length`] può essere applicata
 a liste di elementi di tipo arbitrario.
 
 <!-- Le funzioni `head` e `tail` restituiscono rispettivamente la testa e -->
@@ -159,7 +161,7 @@ a liste di elementi di tipo arbitrario.
 <!-- robusto di accedere agli elementi di una lista esaminandone la -->
 <!-- struttura. -->
 
-Le funzioni `sum` e `product` possono essere usate per calcolare
+Le funzioni [`sum`] e [`product`] possono essere usate per calcolare
 rispettivamente la **somma** ed il **prodotto** degli elementi di
 liste di numeri:
 
@@ -168,7 +170,7 @@ sum [1, 2, 3]
 product [4, 5, 6]
 ```
 
-Se applicate alla lista vuota, `sum` e `product` restituiscono
+Se applicate alla lista vuota, [`sum`] e [`product`] restituiscono
 rispettivamente 0 (la somma di zero numeri) ed 1 (il prodotto di
 zero numeri). Non a caso 0 e 1 sono gli elementi neutri delle due
 operazioni.
@@ -178,7 +180,7 @@ sum []
 product []
 ```
 
-L'operatore `++` -- detto **append** -- **concatena** due liste `xs`
+L'operatore [`++`] -- detto **append** -- **concatena** due liste `xs`
 ed `ys`, creando una terza lista che contiene tutti gli elementi di
 `xs` seguiti da tutti gli elementi di `ys`:
 

@@ -2,6 +2,8 @@
 title: Coppie e tuple
 ---
 
+{% include links.md %}
+
 Una **tupla** è una sequenza **ordinata** e **finita** di elementi
 non necessariamente omogenei. Ovvero, gli elementi di una tupla non
 devono necessariamente avere tutti lo stesso tipo. In questa scheda
@@ -34,7 +36,7 @@ due esempi mostrano che `(False, 2, True)` e `(False, (2, True))`
 sono profondamente diverse: la prima è una tripla; la seconda è una
 coppia la cui seconda componente è un'altra coppia. Il fatto che
 queste due tuple siano diverse significa anche che non è possibile
-confrontarle con gli operatori `==` e `/=`, che invece si aspettano
+confrontarle con gli operatori [`==`] e [`/=`], che invece si aspettano
 operandi dello stesso tipo:
 
 ``` haskell
@@ -97,7 +99,7 @@ tecniche *ad hoc*.
    ```
    {:.solution}
 3. Un numero complesso può essere rappresentato da una coppia
-   ordinata di numeri (per esempio, di tipo `Double`). Definire
+   ordinata di numeri (per esempio, di tipo [`Double`]). Definire
    funzioni per sommare, negare e sottrarre numeri complessi.
    ``` haskell
    -- Definiamo un alias di tipo in modo che il nome Complesso sia

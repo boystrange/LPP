@@ -16,7 +16,7 @@ links:
                   I=$$(./assets/bash/urlencode $$i); \
 		  set -f; \
 		  echo "Processing " $$i $$K $$I; \
-		  echo [\`$$K\`]: https://hoogle.haskell.org/?hoogle=$$I%20is%3Aexact\&scope=set%3Aincluded-with-ghc >>_includes/links.md; \
+		  echo [\`$$K\`]: https://hoogle.haskell.org/?hoogle=$$I%20is%3Aexact%20package%3Abase\&scope=set%3Aincluded-with-ghc >>_includes/links.md; \
 		done \
 	)
 

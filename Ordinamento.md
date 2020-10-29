@@ -2,6 +2,8 @@
 title: Insertion Sort e Merge Sort
 ---
 
+{% include links.md %}
+
 ## Descrizione del problema
 
 Haskell è un linguaggi di programmazione **puro**, intendendo con
@@ -113,7 +115,7 @@ elementi da prendere in considerazione.
 L'operazione di **divisione** di una lista richiede comunque una
 scansione della lista stessa, in quanto i suoi elementi non sono
 necessariamente adiacenti in memoria. Una possibilità è dunque
-quella di calcolare la lunghezza $n$ della lista con `length`
+quella di calcolare la lunghezza $n$ della lista con [`length`]
 (operazione che ha un corso proporzionale a $n$), e poi dividere la
 lista più o meno a metà, separando i primi $\frac{n}2$ elementi
 dagli ultimi. Anche questa operazione di divisione, tuttavia,
@@ -175,8 +177,7 @@ mergeSort xs  = merge (mergeSort ys) (mergeSort zs)
 
 ## Esercizi
 
-1. Consultare la documentazione delle funzioni `take` e `drop` nella
-   [libreria standard](https://hoogle.haskell.org). Facendo uso
+1. Consultare la documentazione delle funzioni [`take`] e [`drop`]. Facendo uso
    di queste funzioni, realizzare l'operazione di divisione
    descritta a parole nel testo qui sopra.
    ``` haskell

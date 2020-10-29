@@ -2,6 +2,8 @@
 title: List comprehension
 ---
 
+{% include links.md %}
+
 Data l'importanza delle liste in tutti i programmi funzionali,
 Haskell fornisce una notazione intuitiva per esprimere liste
 derivate da altre liste.
@@ -67,7 +69,7 @@ definiti dai generatori che le precedono.
 
 ## Esercizi
 
-1. Ridefinire `map` e `filter` usando solo list comprehension.
+1. Ridefinire [`map`] e [`filter`] usando solo list comprehension.
    ```haskell
    map :: (a -> b) -> [a] -> [b]
    map f xs = [ f x | x <- xs ]

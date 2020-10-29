@@ -2,6 +2,8 @@
 title: Fibonacci logaritmico
 ---
 
+{% include links.md %}
+
 ## Descrizione del problema
 
 In questo caso di studio illustriamo una realizzazione efficiente
@@ -120,7 +122,7 @@ sequenza di Fibonacci.
 ## Implementazione in Haskell
 
 Per la realizzazione efficiente di `fibonacci` è necessario lavorare
-con matrici $2 \times 2$ di numeri di tipo `Integer`. Tra le varie
+con matrici $2 \times 2$ di numeri di tipo [`Integer`]. Tra le varie
 rappresentazioni possibili di queste matrici, scegliamo di usare una
 quadrupla (una tupla con 4 elementi). In altre parole, la tupla
 
@@ -174,7 +176,7 @@ pow a k | k == 0         = (1, 0, 0, 1)
 
 Notiamo l'uso infisso delle funzioni `mul` e `pow`. Questo è
 possibile racchiudendo il nome di tali funzioni tra backtick,
-esattamente come avviene per le funzioni di libreria `div` e `mod`.
+esattamente come avviene per le funzioni di libreria [`div`] e [`mod`].
 Con `pow` a disposizione, la funzione `fibonacci` efficiente è
 realizzata come segue
 

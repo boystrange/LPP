@@ -2,6 +2,8 @@
 title: Trasformazioni di liste e Quick Sort
 ---
 
+{% include links.md %}
+
 ## Introduzione
 
 In questo caso di studio illustriamo come combinare e usare due
@@ -54,15 +56,15 @@ trasformazione dei singoli elementi.
 Le funzioni `arrotonda` e `quadrati` sono strutturalmente
 analoghe. Se si escludono nome e tipo, l'unica differenza
 sostanziale tra le due è la trasformazione applicata a ogni elemento
-della lista (`round` nel caso di `arrotonda` e `(^ 2)` nel caso di
+della lista ([`round`] nel caso di `arrotonda` e `(^ 2)` nel caso di
 `quadrati`). È facile immaginare molte altre funzioni
 strutturalmente simili a `arrotonda` e `quadrati` che differiscono
 da queste solo per il tipo di trasformazione applicata.  In un
 linguaggio come Haskell, in cui le funzioni sono entità di prima
 classe ed il sistema di tipi supporta il polimorfismo parametrico, è
 possibile realizzare un'unica funzione -- storicamente chiamata
-`map` -- che realizza una volta per tutte questa trasformazione di
-liste. Il codice di `map` è mostrato qui sotto:
+[`map`] -- che realizza una volta per tutte questa trasformazione di
+liste. Il codice di [`map`] è mostrato qui sotto:
 
 ``` haskell
 map :: (a -> b) -> [a] -> [b]
@@ -70,28 +72,28 @@ map _ []       = []
 map f (x : xs) = f x : map f xs
 ```
 
-Il tipo di `map` ne rivela le caratteristiche essenziali.  In primo
-luogo, vediamo che `map` è una funzione di ordine superiore, dal
+Il tipo di [`map`] ne rivela le caratteristiche essenziali.  In primo
+luogo, vediamo che [`map`] è una funzione di ordine superiore, dal
 momento che ha come primo argomento un'altra funzione. In secondo
-luogo, notiamo che `map` prescinde completamente sia dal tipo degli
+luogo, notiamo che [`map`] prescinde completamente sia dal tipo degli
 elementi della lista da trasformare (rappresentato dalla variabile
 di tipo `a`) che dal tipo degli elementi della lista risultante
 dalla trasformazione (rappresentato dalla variabile di tipo
-`b`). Ciò rende `map` applicabile nel più ampio spettro di contesti,
+`b`). Ciò rende [`map`] applicabile nel più ampio spettro di contesti,
 compresi quelli in cui il tipo degli elementi nella lista risultante
 dalla trasformazione è *diverso* dal tipo degli elementi nella lista
 iniziale, come in `arrotonda`.
 
-L'implementazione di `map` segue sostanzialmente quella delle
+L'implementazione di [`map`] segue sostanzialmente quella delle
 funzioni `arrotonda` e `quadrati`, salvo che la funzione da
-applicare a ogni elemento della lista è un argomento di `map` invece
+applicare a ogni elemento della lista è un argomento di [`map`] invece
 di essere fissata a priori. L'equazione corrispondente al caso della
 lista vuota fa uso del pattern `_` dal momento che la trasformazione
 non è applicata.
 
-Un volta implementato in `map` questo schema di trasformazione di
+Un volta implementato in [`map`] questo schema di trasformazione di
 liste, `arrotonda` e `quadrati` sono ottenibili come semplici
-specializzazioni di `map` senza usare esplicitamente la ricorsione:
+specializzazioni di [`map`] senza usare esplicitamente la ricorsione:
 
 ``` haskell
 arrotonda :: (RealFrac a, Integral b) => [a] -> [b]
@@ -127,10 +129,10 @@ maggiori x (y : ys) | y >= x    = y : maggiori x ys
 ```
 
 Notiamo ancora una volta le forti analogie strutturali tra `minori`
-e `maggiori`. Esattamente come nel caso di `map`, possiamo astrarre
+e `maggiori`. Esattamente come nel caso di [`map`], possiamo astrarre
 da queste funzioni il predicato usato per selezionare gli elementi
 che sopravvivono al filtro e renderlo esso stesso un argomento della
-funzione che effettua il filtro, chiamata appunto `filter`:
+funzione che effettua il filtro, chiamata appunto [`filter`]:
 
 ``` haskell
 filter :: (a -> Bool) -> [a] -> [a]
@@ -140,7 +142,7 @@ filter p (x : xs) | p x       = x : filter p xs
 ```
 
 È ora possibile definire `minori` e `maggiori` come semplici
-specializzazioni di `filter`:
+specializzazioni di [`filter`]:
 
 ``` haskell
 minori :: Ord a => a -> [a] -> [a]
@@ -170,7 +172,7 @@ In questa descrizione dell'algoritmo QuickSort è evidente come
 occorra eliminare da una lista tutti gli elementi che non soddisfano
 una determinata condizione (essere minori del pivot, oppure essere
 maggiori o uguali al pivot). Ciò suggerisce l'uso della funzione
-`filter`. Possiamo dunque realizzare la funzione `qsort` nel
+[`filter`]. Possiamo dunque realizzare la funzione `quickSort` nel
 seguente modo:
 
 ``` haskell
@@ -207,7 +209,7 @@ banale) dalla dimensione della lista da ordinare.
 Il terzo e ultimo tipo di trasformazione comune delle liste riguarda
 quei casi in cui è necessario **combinare** tutti gli elementi di
 una lista usando un determinato operatore binario. Due esempi di
-tali combinazioni sono forniti dalle funzioni `sum` e `product` che
+tali combinazioni sono forniti dalle funzioni [`sum`] e [`product`] che
 rispettivamente sommano e moltiplicano tutti gli elementi di una
 lista. Tali funzioni potrebbero essere definite ricorsivamente
 facendo pattern matching sulla lista di elementi da combinare:
@@ -222,19 +224,19 @@ product []       = 1
 product (x : xs) = x * prodotto xs
 ```
 
-Proprio come `map` e `filter`, anche qui possiamo apprezzare delle
-forti analogie strutturali tra `sum` e `product`. In particolare,
+Proprio come [`map`] e [`filter`], anche qui possiamo apprezzare delle
+forti analogie strutturali tra [`sum`] e [`product`]. In particolare,
 gli elementi di una lista sono combinati per mezzo di vari operatori
-(`+` o `*`) che possono essere astratti dal corpo di queste
+([`+`] o `*`) che possono essere astratti dal corpo di queste
 funzioni. A differenza degli esempi discussi in precedenza,
 tuttavia, notiamo che anche il valore restituito nel caso base varia
-a seconda dell'operazione che vogliamo eseguire: usiamo `0` in `sum`
-e `1` in `product`. Ciò suggerisce che, per astrarre adeguatamente
+a seconda dell'operazione che vogliamo eseguire: usiamo `0` in [`sum`]
+e `1` in [`product`]. Ciò suggerisce che, per astrarre adeguatamente
 questa trasformazione di liste e renderla generica, occorra
 specificare non solo l'operazione usata per combinare tra loro gli
 elementi di una lista, ma anche l'elemento da restituire nel momento
 in cui si cerca di trasformare la lista vuota. Seguendo questa
-intuizione otteniamo la funzione `foldr`:
+intuizione otteniamo la funzione [`foldr`]:
 
 ``` haskell
 foldr :: (a -> b -> b) -> b -> [a] -> b
@@ -244,15 +246,15 @@ foldr f x (y : ys) = f y (foldr f x ys)
 
 Indicando con $\oplus$ una generica operazione binaria e con
 $\mathbf{0}$ il valore da restituire nel caso della lista vuota,
-possiamo descrivere l'effetto di `foldr` applicato a una lista
+possiamo descrivere l'effetto di [`foldr`] applicato a una lista
 $[a_1, a_2, \dots, a_n]$ così:
 
 $$
   \mathtt{foldr}~(\oplus)~\mathbf{0}~[a_1, a_2, \dots, a_n] = a_1 \oplus (a_2 \oplus (\cdots (a_n \oplus \mathbf{0})\cdots))
 $$
 
-È ora possibile definire `sum` e `product` come specializzazioni di
-`foldr`:
+È ora possibile definire [`sum`] e [`product`] come specializzazioni di
+[`foldr`]:
 
 ``` haskell
 sum :: Num a => [a] -> a
@@ -262,25 +264,25 @@ product :: Num a => [a] -> a
 product = foldr (*) 1
 ```
 
-La `r` in `foldr` è l'abbreviazione di "right", lasciando intendere
+La `r` in [`foldr`] è l'abbreviazione di "right", lasciando intendere
 l'esistenza di un'altra versione della stessa funzione che si chiama
-`foldl` (per "left"). La differenza tra `foldr` e `foldl` risiede
+[`foldl`] (per "left"). La differenza tra [`foldr`] e [`foldl`] risiede
 nell'associatività che si intende dare all'operatore $\oplus$ usato
-per combinare tutti gli elementi della lista: nel caso di `foldr`
+per combinare tutti gli elementi della lista: nel caso di [`foldr`]
 tale operatore è inteso associativo a destra, mentre nel caso di
-`foldl` come associativo a sinistra. In altri termini, abbiamo
+[`foldl`] come associativo a sinistra. In altri termini, abbiamo
 
 $$
   \mathtt{foldl}~(\oplus)~ \mathbf{0}~ [a_1, a_2, \dots, a_n] = (\cdots((\mathbf{0} \oplus a_1) \oplus a_2) \oplus \cdots \oplus a_n)
 $$
 
-Nel caso in cui $\oplus$ sia associativo, l'effetto di `foldl` e di
-`foldr` è il medesimo. In generale ci sono però delle differenze tra
+Nel caso in cui $\oplus$ sia associativo, l'effetto di [`foldl`] e di
+[`foldr`] è il medesimo. In generale ci sono però delle differenze tra
 le due versioni di `fold` (si veda la sezione di esercizi).
 
 ## Esercizi
 
-1. Definire `foldl` partendo dalla definizione informale data sopra.
+1. Definire [`foldl`] partendo dalla definizione informale data sopra.
    ```haskell
    foldl :: (b -> a -> b) -> b -> [a] -> b
    foldl _ x []       = x
@@ -298,11 +300,11 @@ le due versioni di `fold` (si veda la sezione di esercizi).
 	  {:.solution}
    3. `foldr (+) 0 . map (const 1)`
       > La funzione che calcola la lunghezza di una lista
-      > (`length`).
+      > ([`length`]).
 	  {:.solution}
    4. `foldl (\xs x -> x : xs) []`
       > La funzione che inverte l'ordine degli elementi di una lista
-	  > (`reverse`).
+	  > ([`reverse`]).
       {:.solution}
 3. Definire le seguenti funzioni della libreria standard **senza
       usare esplicitamente la ricorsione**:
