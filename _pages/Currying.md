@@ -34,15 +34,15 @@ del)la funzione seguita da ciascun argomento.
 addizione 2 3
 addizione (negate 2) 3
 ```
-{:.run}
 
 Per comprendere meglio la natura delle funzioni a più argomenti,
 ripetiamo sulla funzione `addizione` l'esercizio della [sezione
-precedente](Lambda.md), in cui abbiamo riscritto
-`successore` usando una funzione anonima. Dal momento che
-`addizione` ha due argomenti, avremo bisogno di due passaggi in cui
-spostiamo ciascun argomento della funzione da sinistra a destra del
-simbolo `=`. Procedendo un argomento alla volta abbiamo
+precedente]({{ site.baseurl }}{% link _pages/Lambda.md %}), in cui
+abbiamo riscritto `successore` usando una funzione anonima. Dal
+momento che `addizione` ha due argomenti, avremo bisogno di due
+passaggi in cui spostiamo ciascun argomento della funzione da
+sinistra a destra del simbolo `=`. Procedendo un argomento alla
+volta abbiamo
 
 ``` haskell
 addizione :: Int -> Int -> Int
@@ -200,6 +200,7 @@ che facilita il riuso del codice.
 2. Definire una funzione `potenza :: Int -> Int -> Int` che,
    applicata a due numeri interi $m$ ed $n$ con $n \geq 0$, calcoli
    $m^n$ senza fare uso degli operatori [`^`] e `**` di Haskell.
+   ^
    ```haskell
    potenza :: Int -> Int -> Int
    potenza _ 0 = 1
@@ -208,8 +209,9 @@ che facilita il riuso del codice.
    {:.solution}
 
 3. Ridefinire `pow2` vista in un esercizio della [sezione
-   precedente](Ricorsione.md) come applicazione parziale
-   di `potenza`.
+   precedente]({{ site.baseurl }}{% link _pages/Ricorsione.md %})
+   come applicazione parziale di `potenza`.
+   ^
    ```haskell
    pow2 :: Int -> Int
    pow2 = potenza 2
@@ -217,13 +219,17 @@ che facilita il riuso del codice.
    {:.solution}
 
 4. Data la definizione
+
    ```haskell
    sottrazione :: Int -> Int -> Int
    sottrazione x y = x - y
    ```
+
    quale tra le funzioni già viste finora è esprimibile come
    applicazione parziale di `sottrazione`? Suggerimento: è una
-   funzione della [libreria standard](Espressioni.md).
+   funzione della [libreria standard]({{ site.baseurl }}{% link
+   _pages/Espressioni.md %}).
+
    ```haskell
    negate :: Int -> Int
    negate = sottrazione 0

@@ -16,4 +16,5 @@ make
   Shell.
 * Non creare link al costruttore `[]` perché le parentesi quadre
   hanno un significato speciale in Markdown.
-
+* In `kramdown` le definizioni di link sono *case insensitive* e
+  dunque `show` e `Show` finiscono per puntare alla stessa pagina.

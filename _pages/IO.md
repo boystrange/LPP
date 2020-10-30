@@ -2,14 +2,16 @@
 title: La monade di Input/Output
 ---
 
+{% include links.md %}
+
 In un linguaggio di programmazione lazy come Haskell, in cui
 l'ordine di valutazione delle espressioni è difficile da prevedere,
 non è possibile equipaggiare il linguaggio con funzioni "impure",
 cioè che hanno effetti collaterali. Per esempio, supponiamo che
 `print :: Show a => a -> ()` sia una "funzione" che, applicata a un
-argomento di tipo `a` istanza di `Show`, stampi sul terminale la
-rappresentazione testuale di `a` (ottenuta con `show`) e restituisca
-`()`. Funzioni analoghe a questa sono disponibili in molti linguaggi
+argomento di tipo `a` istanza di [`Show`], stampi sul terminale la
+rappresentazione testuale di `a` (ottenuta con [`show`]) e restituisca
+[`()`]. Funzioni analoghe a questa sono disponibili in molti linguaggi
 di programmazione. Si pensi a `printf` nel C o al metodo `println`
 in Java. Cosa verrebbe stampato sul terminale come effetto della
 valutazione delle seguente espressioni, e in quale ordine?
@@ -19,20 +21,20 @@ length [print 2, print True, print "ciao"]
 ```
 
 La risposta corretta è che non verrebbe stampato nulla. Il motivo è
-che la funzione `length` non usa gli elementi di una lista per
-calcolarne la lunghezza, e dunque tutte le applicazioni di `print`
+che la funzione [`length`] non usa gli elementi di una lista per
+calcolarne la lunghezza, e dunque tutte le applicazioni di [`print`]
 rimarrebbero sospese in virtù della valutazione lazy.
 
 Nella libreria standard di Haskell troviamo invece la seguente
-*funzione* che, applicata a un valore di tipo `a` istanza di `Show`,
+*funzione* che, applicata a un valore di tipo `a` istanza di [`Show`],
 crea un'**azione** che, **se eseguita** (da un qualche esecutore),
-stampa il valore sul terminale e produce `()`.
+stampa il valore sul terminale e produce [`()`].
 
 ``` haskell
 :type print
 ```
 
-Il costruttore di tipo `IO` è un esempio di **monade**, una
+Il costruttore di tipo [`IO`] è un esempio di **monade**, una
 struttura che serve a descrivere computazioni/azioni che possono
 avere effetti collaterali se eseguite.
 
@@ -40,7 +42,7 @@ avere effetti collaterali se eseguite.
 
 In sintesi, una monade consiste dei seguenti elementi:
 
-* Un costruttore di tipo `m` istanza della classe `Monad`.
+* Un costruttore di tipo `m` istanza della classe [`Monad`].
 * Una funzione `return :: Monad m => a -> m a` che, applicata a un
   valore $v$ di tipo `a`, crea un'azione `m a` della monade che, *se
   eseguita*, non ha alcun effetto e produce $v$ come risultato.
@@ -53,15 +55,15 @@ In sintesi, una monade consiste dei seguenti elementi:
 * Altre funzioni/azioni specifiche che dipendono dalla monade
   particolare.
 
-Inoltre, le funzioni `return` e `>>=` devono soddisfare le seguenti
+Inoltre, le funzioni [`return`] e [`>>=`] devono soddisfare le seguenti
 condizioni, dove usiamo il simbolo `<~>` per indicare
 un'equivalenza *semantica*:
 
-1. `return` deve essere **identità sinistra** di `>>=`, ovvero
+1. [`return`] deve essere **identità sinistra** di [`>>=`], ovvero
    `return v >>= f <~> f v`.
-2. `return` deve essere **identità destra** di `>>=`, ovvero `m >>=
+2. [`return`] deve essere **identità destra** di [`>>=`], ovvero `m >>=
    return <~> m`.
-3. `>>=` deve essere **associativo** nel senso che `(m >>= f) >>= g
+3. [`>>=`] deve essere **associativo** nel senso che `(m >>= f) >>= g
    <~> m >>= (\x.f x >>= g)`.
 
 Le condizioni 1 e 2 catturano l'intuizione che l'azione `return v`,
@@ -71,21 +73,21 @@ ha lo stesso effetto di eseguire `A` e poi `B` e `C`. Il modo in cui
 le azioni sono associate non modifica l'effetto della loro
 composizione.
 
-Per ogni monade è inoltre disponibile l'operatore `>>`,
+Per ogni monade è inoltre disponibile l'operatore [`>>`],
 tradizionalmente pronunciato **and then**, che consiste in una
-variante di `>>=` in cui il valore prodotto dalla prima azione è
-ignorato. In altri, termini, `>>` è definito così:
+variante di [`>>=`] in cui il valore prodotto dalla prima azione è
+ignorato. In altri, termini, [`>>`] è definito così:
 
 ``` haskell
 (>>) :: Monad m => m a -> m b -> m b
 (>>) m₁ m₂ = m₁ >>= const m₂
 ```
 
-L'operatore `>>` rappresenta a tutti gli effetti la **composizione
-sequenziale**. L'associatività di `>>=` descritta sopra si traduce
+L'operatore [`>>`] rappresenta a tutti gli effetti la **composizione
+sequenziale**. L'associatività di [`>>=`] descritta sopra si traduce
 nell'equivalenza `(A >> B) >> C <~> A >> (B >> C)`.
 
-## La monade `IO`
+## La monade [`IO`]
 
 Il tipo `IO a` descrive azioni che, se eseguite, possono causare
 operazioni di input/output (per esempio la stampa di caratteri sul
@@ -99,23 +101,23 @@ Un'immagine mentale utile a cogliere il significato del tipo `IO a`
 Un valore di tipo `IO a` rappresenta l'intenzione di eseguire una
 particolare azione ma non implica l'esecuzione della stessa. È
 necessario fornire il valore a un esecutore affinché l'azione venga
-davvero eseguita. Nel caso della monade `IO`, l'esecutore delle
+davvero eseguita. Nel caso della monade [`IO`], l'esecutore delle
 azioni è il **sistema operativo**. Per indicare al sistema operativo
 quale azione eseguire è necessario darle nome `main`.
 
 ## Output
 
-Siccome `IO` è istanza di `Monad`, è possibile usare le funzioni
-`return` e `>>=` per costruire e comporre azioni di input/output.
+Siccome [`IO`] è istanza di [`Monad`], è possibile usare le funzioni
+[`return`] e [`>>=`] per costruire e comporre azioni di input/output.
 In aggiunta, è disponibile la seguente funzione che, applicata a un
 carattere, crea un'azione che, se eseguita, stampa quel carattere
-sul terminale e produce `()` come risultato.
+sul terminale e produce [`()`] come risultato.
 
 ``` haskell
 :type putChar
 ```
 
-Usando opportunamente `putChar` è possibile definire funzioni che
+Usando opportunamente [`putChar`] è possibile definire funzioni che
 creano azioni più complesse. Per esempio, la seguente funzione crea
 l'azione che, se eseguita, stampa un'intera stringa e un ritorno a
 capo sul terminale componendo sequenzialmente le azioni che, se
@@ -129,7 +131,7 @@ putStrLn (c : cs) = putChar c >> putStrLn cs
 ```
 {: #putStrLn}
 
-Usando `putStrLn` possiamo (finalmente!) scrivere il più piccolo
+Usando [`putStrLn`] possiamo (finalmente!) scrivere il più piccolo
 programma Haskell che stampa un saluto sullo schermo:
 
 ``` haskell
@@ -137,12 +139,12 @@ main :: IO ()
 main = putStrLn "Hello, world!"
 ```
 
-Nota: `putStrLn` e la variante `putStr` che non causa la stampa del
+Nota: [`putStrLn`] e la variante [`putStr`] che non causa la stampa del
 ritorno a capo sono già definite nella libreria standard di Haskell.
 
 ## Input
 
-Le azioni `getChar` e `getLine` possono essere usate per leggere dal
+Le azioni [`getChar`] e [`getLine`] possono essere usate per leggere dal
 terminale un singolo carattere e un'intera riga di testo.
 
 ``` haskell
@@ -150,7 +152,7 @@ terminale un singolo carattere e un'intera riga di testo.
 :type getLine
 ```
 
-In particolare, `getChar` è un'azione che, se eseguita, legge un
+In particolare, [`getChar`] è un'azione che, se eseguita, legge un
 carattere dal terminale e produce quel carattere come risultato.
 
 A titolo di esempio, scriviamo un programma che ripete ogni riga di
@@ -171,7 +173,7 @@ main = parrot
 ```
 {:#parrot}
 
-Si noti l'uso di `>>=` per comporre l'azione `getLine`, che produce
+Si noti l'uso di [`>>=`] per comporre l'azione [`getLine`], che produce
 come risultato la riga di testo letta dal terminale, con la funzione
 che elabora tale riga.
 
@@ -181,14 +183,14 @@ che elabora tale riga.
   a` si limitano a **creare** azioni di input/output senza
   eseguirle.
 * L'ordine di esecuzione delle azioni di input/output è specificato
-  esplicitamente dal programmatore per mezzo degli operatori `>>=` e
-  `>>`.
+  esplicitamente dal programmatore per mezzo degli operatori [`>>=`] e
+  [`>>`].
 * Il compito di **eseguire** le operazioni di input/output spetta al
   sistema operativo.
 
 ## Esercizi
 
-1. Definire `putStrLn` usando solo `return` e `>>`, ma senza
+1. Definire [`putStrLn`] usando solo [`return`] e [`>>`], ma senza
    ricorsione.
    ^
    ``` haskell
@@ -221,7 +223,7 @@ che elabora tale riga.
    {:.solution}
 4. Definire un'azione `getInt :: IO Int` che legga una riga di
    testo, che si suppone contenga un numero intero, e produca il
-   valore corrispondente di tipo `Int`. Suggerimento: usare `read`.
+   valore corrispondente di tipo [`Int`]. Suggerimento: usare [`read`].
    ^
    ``` haskell
    getInt :: IO Int

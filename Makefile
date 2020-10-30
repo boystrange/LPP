@@ -9,7 +9,7 @@ serve:
 
 links:
 	( \
-		NAMES=$$(grep -o -e "\[\`[^\`]*\`\]" *.md | cut -d\` -f2 | sort -u); \
+		NAMES=$$(grep -o -e "\[\`[^\`]*\`\]" _pages/*.md | cut -d\` -f2 | sort -u); \
 		rm -f _includes/links.md; \
 		for i in $$NAMES; do \
 		  K=$$(./assets/bash/mdencode $$i); \

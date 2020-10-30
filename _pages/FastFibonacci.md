@@ -194,10 +194,11 @@ matrice che siamo interessati a restituire come risultato.
 Per avere un'idea dell'efficienza di questa realizzazione di
 `fibonacci`, è possibile confrontare il tempo di esecuzione
 necessario a valutare la seguente espressione per le varie versioni
-presentate qui e [nel precedente caso di
-studio](Iterazione.html). Tenere presente che la versione più lenta
-di `fibonacci` richiede un tempo di calcolo significativo (superiore
-ai 10 secondi) già intorno al 35-esimo numero di Fibonacci.
+presentate qui e [nel precedente caso di studio]({{ site.baseurl
+}}{% link _pages/Iterazione.md %}). Tenere presente che la versione
+più lenta di `fibonacci` richiede un tempo di calcolo significativo
+(superiore ai 10 secondi) già intorno al 35-esimo numero di
+Fibonacci.
 
 ``` haskell
 fibonacci 100000

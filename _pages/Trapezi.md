@@ -38,10 +38,11 @@ $\lambda$-astrazioni e scrivere metodi Java che accettano funzioni
 come argomenti; la seconda, in Haskell, è derivata direttamente
 dalla prima applicando la trasformazione di algoritmi
 imperativi/iterativi in funzionali/ricorsivi vista in un [precedente
-caso di studio](Iterazione.html). La terza e ultima versione che
-analizzeremo, sempre in Haskell, non fa uso di ricorsione, ma è
-ottenuta esprimendo il metodo di integrazione numerica come una
-catena di trasformazioni in [stile dataflow
+caso di studio]({{ site.baseurl }}{% link _pages/Iterazione.md
+%}). La terza e ultima versione che analizzeremo, sempre in Haskell,
+non fa uso di ricorsione, ma è ottenuta esprimendo il metodo di
+integrazione numerica come una catena di trasformazioni in [stile
+dataflow
 programming](https://en.wikipedia.org/wiki/Dataflow_programming).
 
 ## Implementazione in Java con $\lambda$-astrazioni
@@ -112,10 +113,10 @@ caratteristiche preesistenti di Java.
 
 La versione Haskell del metodo `trapezi` può essere ottenuta
 facilmente dalla versione Java applicando la [trasformazione di
-algoritmi imperativi/iterativi in
-funzionali/ricorsivi](Iterazione.html) osservando che il ciclo
-`while` modifica le variabili `area`, `a` ed `n`. Il codice Haskell
-risultante è mostrato di seguito:
+algoritmi imperativi/iterativi in funzionali/ricorsivi]({{
+site.baseurl }}{% link _pages/Iterazione.md %}) osservando che il
+ciclo `while` modifica le variabili `area`, `a` ed `n`. Il codice
+Haskell risultante è mostrato di seguito:
 
 ``` haskell
 trapezi :: (Double -> Double) -> Double -> Double -> Int -> Double
@@ -272,4 +273,3 @@ funzione di libreria [`uncurry`].
    > proprio come secondo argomento di zip e non è necessario
    > valutarla per determinare che `zip [] (tail []) = []`.
    > {:.solution}
-

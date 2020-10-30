@@ -21,9 +21,9 @@ possibile calcolare a priori (non vi è una relazione diretta tra $n$
 e l'$n$-esimo numero primo).
 
 La soluzione più ovvia, che esaminiamo prima in Java e che fa uso
-del metodo `primo` [discusso in
-precedenza](Iterazione.html#descrizione-del-problema), realizza tale
-scansione con un ciclo `while` e aggiunge ogni numero primo
+del metodo `primo` [discusso in precedenza]({{ site.baseurl }}{%
+link _pages/Iterazione.md %}#descrizione-del-problema), realizza
+tale scansione con un ciclo `while` e aggiunge ogni numero primo
 individuato a una lista fino a quando questa non raggiunge la
 dimensione $n$.
 

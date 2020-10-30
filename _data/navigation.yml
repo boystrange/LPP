@@ -82,7 +82,7 @@ blocks:
         name:  CostruttoriArgomenti
       - title: "Implementazione della Java Virtual Mini-Machine"
         case:  true
-        name:  JVM
+        name:  JVMM
   - title: "Laboratorio 7"
     children:
       - title: "Tipi polimorfi e ricorsivi"

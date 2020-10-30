@@ -2,9 +2,11 @@
 title: Notazione do
 ---
 
+{% include links.md %}
+
 Il linguaggio Haskell fornisce una sintassi semplificata alternativa
 per la composizione delle azioni di una monade che nasconde l'uso
-esplicito degli operatori `>>=` e `>>` e consente la scrittura di
+esplicito degli operatori [`>>=`] e [`>>`] e consente la scrittura di
 codice in uno stile che si avvicina a quello "imperativo".
 
 ## Composizione sequenziale
@@ -37,7 +39,8 @@ putStrLn (c : cs) = do putChar c
 ```
 
 è una realizzazione alternativa della funzione ricorsiva `putStrLn`
-[descritta in precedenza](IO.html#putStrLn).
+[descritta in precedenza]({{ site.baseurl }}{% link _pages/IO.md
+%}#putStrLn).
 
 ## Composizione con passaggio del risultato
 
@@ -55,9 +58,9 @@ do x <- A
 in cui il nome scelto `x` è visibile in `B` e, in generale, in tutte
 le azioni che seguono `A` nella composizione.
 
-Ad esempio, l'azione [`parrot`](IO.html#parrot) descritta nella
-traccia precedente può essere definita con la notazione `do` nel
-modo seguente:
+Ad esempio, l'azione [`parrot`]({{ site.baseurl }}{% link
+_pages/IO.md %}#parrot) descritta nella traccia precedente può
+essere definita con la notazione `do` nel modo seguente:
 
 ``` haskell
 parrot :: IO ()
@@ -85,7 +88,7 @@ fa parte del blocco più interno.
                        for xs f
    ```
    {:.solution}
-2. Ridefinire `putStrLn`, questa volta facendo uso di `for`
+2. Ridefinire [`putStrLn`], questa volta facendo uso di `for`
    definita nell'esercizio precedente.
    ^
    ``` haskell
@@ -94,8 +97,9 @@ fa parte del blocco più interno.
                    putChar '\n'
    ```
    {:.solution}
-3. Definire nuovamente l'azione [`getLines`](IO.html#getLines),
-   questa volta usando la notazione `do`.
+3. Definire nuovamente l'azione [`getLines`]({{ site.baseurl }}{%
+   link _pages/IO.md %}#getLines), questa volta usando la notazione
+   `do`.
    ^
    ``` haskell
    getLines :: IO [String]

@@ -48,8 +48,8 @@ operandi dello stesso tipo:
 È possibile accedere alle componenti di una tupla usando il pattern
 matching, dando un nome alle componenti di una tupla che si vogliono
 utilizzare. A titolo di esempio, rivisitiamo la funzione `addizione`
-definita nella sezione sulle [funzioni a più
-argomenti](Currying.html):
+definita nella sezione sulle [funzioni a più argomenti]({{
+site.baseurl }}{% link _pages/Currying.md %}):
 
 ``` haskell
 addizione :: (Int, Int) -> Int
@@ -71,8 +71,8 @@ addizione (1, 2)
 applicare funzioni a più argomenti, al punto che la sintassi
 mostrata qui sopra coincide con quella adottata in linguaggi di
 programmazione più tradizionali, in Haskell è più semplice, più
-efficiente e più flessibile sfruttare il
-[currying](Currying.html). Vedremo dei casi in cui è comodo
+efficiente e più flessibile sfruttare il [currying]({{ site.baseurl
+}}{% link _pages/Currying.md %}). Vedremo dei casi in cui è comodo
 raggruppare argomenti multipli di una funzione in una coppia, ma
 questi sono eccezioni che possono essere gestiti con tecniche *ad
 hoc*.

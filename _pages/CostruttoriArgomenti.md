@@ -61,10 +61,10 @@ indistinguibile da quello di un valore "normale".
 Lo scenario ideale è quello in cui la funzione `elemento`
 restituisca un valore di un *nuovo tipo di dato* distinto da `Int` e
 i cui valori hanno due forme possibili a seconda che l'indice
-fornito sia valido oppure no. A questo scopo una
-[enumerazione](Enumerazione.html) non basta, perché nel caso in cui
-l'indice sia valido è necessario anche comunicare l'elemento che si
-trova in quella posizione.
+fornito sia valido oppure no. A questo scopo una [enumerazione]({{
+site.baseurl }}{% link _pages/Enumerazioni.md %}) non basta, perché
+nel caso in cui l'indice sia valido è necessario anche comunicare
+l'elemento che si trova in quella posizione.
 
 ## Costruttori come funzioni
 

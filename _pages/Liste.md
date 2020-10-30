@@ -101,7 +101,7 @@ Vale la pena commentare alcuni di questi tipi:
   imparare nulla di più sul tipo della lista.
 * `[1, 2, 3]` ha tipo `Num a => [a]`, coerentemente col fatto che
   una costante come `1` ha tipo `Num a => a` per quanto [visto in
-  precedenza](Tipi.html).
+  precedenza]({{ site.baseurl }}{% link _pages/Tipi.md %}).
 * `[0.5, 3]` ha tipo `Fractional a => [a]`, coerentemente col fatto
   che una costante come `0.5` ha tipo `Fractional a => a`.
 
@@ -277,9 +277,10 @@ product :: Num a => [a] -> a -- prodotto degli elementi di una lista
    {:.solution}
 6. Definire una funzione `primi :: Int -> [Int]` che, applicata a un
    numero intero $n$, crei la lista dei numeri primi da 2 a
-   $n$. Utilizzare la funzione `primo` [discussa in
-   precedenza](Iterazione.html) per determinare se un numero è
-   primo.
+   $n$. Utilizzare la funzione `primo` [discussa in precedenza]({{
+   site.baseurl }}{% link _pages/Iterazione.md %}) per determinare
+   se un numero è primo.
+   ^
    ```haskell
    primi :: Int -> [Int]
    primi n = aux 2

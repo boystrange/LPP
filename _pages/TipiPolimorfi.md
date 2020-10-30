@@ -4,8 +4,8 @@ title: Tipi polimorfi e ricorsivi
 
 ## Tipi polimorfi
 
-Nella scheda sui [costruttori con
-argomenti](CostruttoriArgomenti.html) abbiamo definito un tipo
+Nella scheda sui [costruttori con argomenti]({{ site.baseurl }}{%
+link _pages/CostruttoriArgomenti.md %}) abbiamo definito un tipo
 `ForseInt` per rappresentare "numeri interi o niente". È possibile
 generalizzare il tipo del costruttore `Proprio` rendendo questo tipo
 **polimorfo**. Il tipo che si ottiene è già definito nella libreria
@@ -105,13 +105,13 @@ Cons 1 (Cons 2 (Cons 3 Nil))
    maybeFilter _ _              = Nothing
    ```
    {:.solution}
-2. Il tipo `Numero` (si veda la [sezione di
-   esercizi](CostruttoriArgomenti.html#Esercizi) della traccia sui
-   costruttori con argomenti) può essere rappresentato con il tipo
-   `Either Int Float`. Ridefinire la funzione `somma :: Either Int
-   Float -> Either Int Float -> Either Int Float` per sommare due
-   numeri in modo tale che il risultato sia *floating-point* solo se
-   necessario.
+2. Il tipo `Numero` (si veda la [sezione di esercizi]({{
+   site.baseurl }}{% link _pages/CostruttoriArgomenti.md
+   %}#Esercizi) della traccia sui costruttori con argomenti) può
+   essere rappresentato con il tipo `Either Int Float`. Ridefinire
+   la funzione `somma :: Either Int Float -> Either Int Float ->
+   Either Int Float` per sommare due numeri in modo tale che il
+   risultato sia *floating-point* solo se necessario.
    ^
    ``` haskell
    somma :: Either Int Float -> Either Int Float -> Either Int Float
