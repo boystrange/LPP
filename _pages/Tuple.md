@@ -72,10 +72,10 @@ applicare funzioni a più argomenti, al punto che la sintassi
 mostrata qui sopra coincide con quella adottata in linguaggi di
 programmazione più tradizionali, in Haskell è più semplice, più
 efficiente e più flessibile sfruttare il
-[currying](Currying.html). [Vedremo dei casi](OrdineSuperiore.html)
-in cui è comodo raggruppare argomenti multipli di una funzione in
-una coppia, ma questi sono eccezioni che possono essere gestiti con
-tecniche *ad hoc*.
+[currying](Currying.html). Vedremo dei casi in cui è comodo
+raggruppare argomenti multipli di una funzione in una coppia, ma
+questi sono eccezioni che possono essere gestiti con tecniche *ad
+hoc*.
 
 ## Esercizi
 
