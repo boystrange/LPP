@@ -109,8 +109,8 @@ ausiliarie `load` e `store` come segue.
 
 ``` haskell
 load :: Var -> Frame -> Value
-load _ [] = 0
-load 0 (v : _) = v
+load _ []       = 0
+load 0 (v : _)  = v
 load n (_ : vs) = load (n - 1) vs
 
 store :: Var -> Value -> Frame -> Frame
@@ -181,7 +181,7 @@ run :: Code -> Frame -> Value
 run = aux []
   where
     aux :: Stack -> Code -> Frame -> Value
-    aux (v : [])     (RETURN : [])  _  = v
+    aux (v : [])     (RETURN : _)   _  = v
     aux vs           (PUSH v : is)  fr = aux (v : vs) is fr
     aux vs           (LOAD x : is)  fr = aux (load x fr : vs) is fr
     aux (v : vs)     (STORE x : is) fr = aux vs is (store x v fr)

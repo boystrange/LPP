@@ -35,7 +35,7 @@ run :: Code -> Frame -> Value
 run = aux []
   where
     aux :: Stack -> Code -> Frame -> Value
-    aux (v : [])     (RETURN : [])  _  = v
+    aux (v : [])     (RETURN : _)  _   = v
     aux vs           (PUSH v : is)  fr = aux (v : vs) is fr
     aux vs           (LOAD x : is)  fr = aux (load x fr : vs) is fr
     aux (v : vs)     (STORE x : is) fr = aux vs is (store x v fr)
