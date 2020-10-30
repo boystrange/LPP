@@ -185,7 +185,7 @@ posizione 3 [1, 2, 3]
    {:.solution}
 3. Usando la funzione `somma` dell'esercizio precedente ma senza
    usare esplicitamente la ricorsione, definire una funzione
-   `summatoria :: [Numero] -> Numero` che, applicata a una lista di
+   `sommatoria :: [Numero] -> Numero` che, applicata a una lista di
    numeri, ne calcoli la somma.
    ^
    ``` haskell
