@@ -2,6 +2,15 @@ title: Linguaggi e Paradigmi di Programmazione
 theme: minima
 baseurl: /LPP
 
+include: ["_pages"]
+
+defaults:
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      permalink: /:basename
+
 exclude:
   - README.md
   - assets/bash/mdencode
