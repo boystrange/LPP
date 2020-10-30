@@ -75,6 +75,7 @@ blocks:
       - title: "Esercizi sulle liste"
         name: EserciziListe
   - title: "Laboratorio 6"
+    public: true
     children:
       - title: "Enumerazioni"
         name:  Enumerazioni
