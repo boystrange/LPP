@@ -85,6 +85,7 @@ blocks:
         case:  true
         name:  JVMM
   - title: "Laboratorio 7"
+    public: true
     children:
       - title: "Tipi polimorfi e ricorsivi"
         name:  TipiPolimorfi

@@ -6,20 +6,22 @@ title: Tipi polimorfi e ricorsivi
 
 Nella scheda sui [costruttori con argomenti]({{ site.baseurl }}{%
 link _pages/CostruttoriArgomenti.md %}) abbiamo definito un tipo
-`ForseInt` per rappresentare "numeri interi o niente". È possibile
-generalizzare il tipo del costruttore `Proprio` rendendo questo tipo
-**polimorfo**. Il tipo che si ottiene è già definito nella libreria
-standard di Haskell e si chiama `Maybe`:
+`ForseInt` per rappresentare "numeri interi o niente". È possibile e
+conveniente rendere questo tipo **polimorfo**, in modo che il
+costruttore `Proprio` sia applicabile ad argomenti di tipo
+arbitrario e non necessariamente a un argomento di tipo `Int`. Il
+tipo che si ottiene è già definito nella libreria standard di
+Haskell e si chiama `Maybe`:
 
 ``` haskell
 data Maybe a = Nothing | Just a
 ```
 
-Notiamo che a sinistra del simbolo `=` è ora definita una
-**variabile di tipo** `a` che rappresenta il tipo dell'argomento del
-costruttore `Just`. Applicando `Maybe` al tipo `Int` si ottiene un
-tipo isomorfo a `ForseInt`, con la differenza che ora `Maybe` può
-essere applicato a tipi diversi a seconda delle necessità.
+Notiamo che a sinistra del simbolo `=` è presente una **variabile di
+tipo** `a` che rappresenta il tipo dell'argomento del costruttore
+`Just`. Applicando `Maybe` al tipo `Int` si ottiene un tipo isomorfo
+a `ForseInt`, con la differenza che ora `Maybe` può essere applicato
+a tipi diversi a seconda delle necessità.
 
 ``` haskell
 Just 1 :: Maybe Int
@@ -38,19 +40,21 @@ Così come `Maybe` è diventato un tipo polimorfo, i costruttori
 Occorre prestare attenzione al fatto che `Maybe` non è più un tipo
 in senso stretto, ma piuttosto un **costruttore di tipo**. Possiamo
 pensare a `Maybe` come a una funzione che, applicata a un tipo,
-restituisca un altro tipo. Questa intuizione è suggerita anche dalla
-sintassi `Maybe T`, che è analoga a usara per applicare una funzione
-al suo argomento.
+restituisce un altro tipo. Questa intuizione è suggerita anche dalla
+sintassi `Maybe T`, che è analoga a quella usata per applicare una
+funzione al suo argomento.
 
 Un tipo può avere un numero arbitrario di parametri di tipo. Ad
 esempio, il (costruttore di) tipo `Either` è definito nella libreria
-standard di Haskell in questo modo:
+standard di Haskell in questo modo
 
 ``` haskell
 data Either a b = Left a | Right b
 ```
 
-I valori di tipo `Either T S` hanno una di due forme possibili:
+e consente di rappresentare l'**unione disgiunta** di due tipi `a` e
+`b`. In altre parole, i valori di tipo `Either T S` hanno una di due
+forme possibili:
 
 * valori della forma `Left x` dove `x` è di tipo `T`, oppure
 * valori della forma `Right y` dove `y` è di tipo `S`.

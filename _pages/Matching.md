@@ -125,9 +125,13 @@ nullable f
 ```
 
 Data un'espressione regolare $F$ su $\Sigma$ ed un simbolo
-$a\in\Sigma$, la **derivata** di $F$ rispetto ad $a$, che denotiamo con
-$\derive{a}{F}$, è definita induttivamente sulla struttura di $F$
-dalle seguenti equazioni:
+$a\in\Sigma$, la **derivata** di $F$ rispetto ad $a$, che denotiamo
+con $\derive{a}{F}$, è un'espressione regolare con la proprietà
+$\ling(\derive{a}{F}) = \set{ v \mid av \in \ling(F) }$. A parole,
+$\derive{a}{F}$ genera il linguaggio dei suffissi di quelle stringhe
+in $\ling(F)$ che iniziano con $a$.  L'aspetto interessante è che
+possiamo definire $\ling(\derive{a}{F})$ induttivamente sulla
+struttura di $F$, usando le seguenti equazioni:
 
 $$
   \begin{array}{rcll}
@@ -148,11 +152,6 @@ $$
     \derive{a}{(F^*)} & = & (\derive{a}{F})F^*
   \end{array}
 $$
-
-L'intuizione che sta alla base della definizione di $\derive{a}{F}$
-è la seguente: se $av \in \ling(F)$, allora $v \in
-\ling(\derive{a}{F})$. In generale, è possibile dimostrare che
-$\ling(\derive{a}{F}) = \set{ v \mid av \in \ling(F) }$.
 
 Combinando il predicato di annullabilità e la definizione di
 derivata, è possibile ottenere una procedura per decidere se

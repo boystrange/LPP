@@ -17,7 +17,8 @@ $T$ sono **più grandi** di $x$.
 Ogni albero binario ha una delle seguenti forme:
 
 * una **foglia**, che non contiene elementi e non ha figli;
-* una **diramazione**, che contiene un elemento e due sotto-alberi.
+* una **diramazione**, che contiene un elemento e ha due
+  sotto-alberi.
 
 Di conseguenza, possiamo rappresentare alberi binari con un tipo
 polimorfo e ricorsivo, parametrico rispetto al tipo degli elementi

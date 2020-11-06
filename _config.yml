@@ -12,6 +12,7 @@ defaults:
       permalink: /:basename
 
 exclude:
+  - "#*#"
   - README.md
   - assets/bash/mdencode
   - assets/bash/urlencode
