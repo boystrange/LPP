@@ -36,7 +36,7 @@ $$
     \\
     \ling(FG) & = & \set{ vw \mid v \in \ling(F) \wedge w \in \ling(G) }
     \\
-    \ling{F^*} & = & \set\varepsilon \cup \ling(F) \cup \ling(FF) \cup \ling(FFF) \cup \cdots
+    \ling(F^*) & = & \set\varepsilon \cup \ling(F) \cup \ling(FF) \cup \ling(FFF) \cup \cdots
   \end{array}
 $$
 
@@ -135,13 +135,13 @@ struttura di $F$, usando le seguenti equazioni:
 
 $$
   \begin{array}{rcll}
-    \derive{a}{0} & = & 0
+    \derive{a}{\emptyset} & = & \emptyset
     \\
-    \derive{a}{1} & = & 0
+    \derive{a}{\varepsilon} & = & \emptyset
     \\
-    \derive{a}{a} & = & 1
+    \derive{a}{a} & = & \varepsilon
     \\
-    \derive{a}{b} & = & 0 & \text{se $a\ne b$}
+    \derive{a}{b} & = & \emptyset & \text{se $a\ne b$}
     \\
     \derive{a}{(F+G)} & = & \derive{a}{F} + \derive{a}{G}
     \\

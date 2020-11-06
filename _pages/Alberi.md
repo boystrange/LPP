@@ -158,7 +158,7 @@ ricerca. Se l'albero non contiene `x`, l'operazione non ha alcun
 effetto.
 
 ``` haskell
-delete :: Ord a => a -> Tree -> Tree a
+delete :: Ord a => a -> Tree a -> Tree a
 delete _ Leaf = Leaf
 delete x (Branch y t₁ t₂) | x < y = Branch y (delete x t₁) t₂
                           | x > y = Branch y t₁ (delete x t₂)
@@ -207,8 +207,8 @@ dell'albero l'elemento più piccolo del sotto-albero destro.
    tmin :: Tree a -> Maybe a
    tmin Leaf           = Nothing
    tmin (Branch x t _) = case tmin t of
-                           Nothing -> x
-						   Just y  -> y
+                           Nothing -> Just x
+						   Just y  -> Just y
    ```
    {:.solution}
 3. Definire una funzione `treeSort :: Ord a => [a] -> [a]` che
