@@ -228,7 +228,7 @@ dell'albero l'elemento più piccolo del sotto-albero destro.
    `empty`, `tmin` e `tmax`.
    ^
    ``` haskell
-   bst :: Tree a -> Bool
+   bst :: Ord a => Tree a -> Bool
    bst Leaf = True
    bst (Branch x t₁ t₂) = bst t₁ && bst t₂ &&
                           (empty t₁ || tmax t₁ < x) &&
