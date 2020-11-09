@@ -146,15 +146,15 @@ facendo, però, ci dovremmo accontentare della sintassi usata nella
 definizione di `Fun`. Per ottenere una notazione il più possibile
 familiare, limitatamente a quanto è possibile con sequenze di
 caratteri, definiamo una istanza della classe `Show`. In
-particolare, occorre fornire una implementazione della funzione
-`show` che faccia il "pretty printing" di un valore di tipo `Fun`
-usando la notazione convenzionale. L'unico aspetto critico che
-complica leggermente la definizione di `show` è che vogliamo
-minimizzare il numero di parentesi utilizzate senza generare
-ambiguità nell'interpretazione di una funzione. Per questo motivo
-abbiamo bisogno di definire una funzione ausiliaria "contestuale"
-che decide se generare o meno parentesi a seconda del contesto in
-cui viene applicata:
+particolare, forniamo una implementazione della funzione `show` che
+faccia il "pretty printing" di un valore di tipo `Fun` usando la
+notazione convenzionale. L'unico aspetto critico che complica
+leggermente la definizione di `show` è che vogliamo minimizzare il
+numero di parentesi utilizzate senza generare ambiguità
+nell'interpretazione di una funzione. Per questo motivo abbiamo
+bisogno di definire una funzione ausiliaria "contestuale" che decide
+se generare o meno parentesi a seconda del contesto in cui viene
+applicata:
 
 ``` haskell
 instance Show Fun where

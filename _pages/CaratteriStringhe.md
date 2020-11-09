@@ -25,8 +25,8 @@ programmazione. Le più comuni sono:
 '\"' -- doppi apici
 ```
 
-È possibile specificare caratteri anche specificandone direttamente
-il codice Unicode.
+È possibile specificare caratteri anche attraverso il loro codice
+Unicode.
 
 ``` haskell
 '\32'   -- spazio

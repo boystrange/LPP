@@ -93,8 +93,11 @@ Il tipo `IO a` descrive azioni che, se eseguite, possono causare
 operazioni di input/output (per esempio la stampa di caratteri sul
 terminale) e poi producono come risultato un valore di tipo `a`.
 Un'immagine mentale utile a cogliere il significato del tipo `IO a`
-è la distinzione tra l'*azione* "correre" e l'*intenzione* di
-"correre".
+è la distinzione tra il "correre" inteso come *azione fisica* ed il
+"correre" inteso come *pensiero* o *intenzione* di eseguire
+l'azione. Il pensiero di "correre" è un'entità che esiste (sebbene
+solo astrattamente nel cervello di chi lo concepisce) a prescindere
+dal fatto che l'azione venga davvero eseguita.
 
 ![](assets/images/monad.png){: style="display: block; margin-left: auto; margin-right: auto" width="33%"}
 
@@ -108,10 +111,10 @@ quale azione eseguire è necessario darle nome `main`.
 ## Output
 
 Siccome [`IO`] è istanza di [`Monad`], è possibile usare le funzioni
-[`return`] e [`>>=`] per costruire e comporre azioni di input/output.
-In aggiunta, è disponibile la seguente funzione che, applicata a un
-carattere, crea un'azione che, se eseguita, stampa quel carattere
-sul terminale e produce [`()`] come risultato.
+[`return`], [`>>=`] e [`>>`] per costruire e comporre azioni di
+input/output.  In aggiunta, è disponibile la seguente funzione che,
+applicata a un carattere, crea un'azione che, se eseguita, stampa
+quel carattere sul terminale e produce [`()`] come risultato.
 
 ``` haskell
 :type putChar
@@ -230,8 +233,9 @@ che elabora tale riga.
    getInt = getLine >>= return . read
    ```
    {:.solution}
-5. Definire un'azione `somma :: IO ()`} che legga un numero intero
-   $n$ seguito da ulteriori $n$ numeri e ne stampi la somma.
+5. Definire un'azione `somma :: IO ()` che, se eseguita, legge un
+   numero intero $n$ seguito da ulteriori $n$ numeri e ne stampa la
+   somma.
    ^
    ``` haskell
    somma :: IO ()
