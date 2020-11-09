@@ -70,7 +70,7 @@ parrot = do s <- getLine
                     parrot
 ```
 
-Si noti la presenza di due blocchi `do` annodati, e di come
+Si noti la presenza di due blocchi `do` annidati e di come
 l'indentazione sia fondamentale per stabilire che l'azione `parrot`
 fa parte del blocco più interno.
 
