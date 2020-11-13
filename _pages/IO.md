@@ -129,7 +129,7 @@ stringa.
 
 ``` haskell
 putStrLn :: String -> IO ()
-putStrLn []       = return '\n'
+putStrLn []       = putChar '\n'
 putStrLn (c : cs) = putChar c >> putStrLn cs
 ```
 {: #putStrLn}
@@ -198,7 +198,7 @@ che elabora tale riga.
    ^
    ``` haskell
    putStrLn :: String -> IO ()
-   putStrLn = foldr ((>>) . putChar) (return '\n')
+   putStrLn = foldr ((>>) . putChar) (putChar '\n')
    ```
    {:.solution}
 2. Senza fare uso esplicito della ricorsione, definire una funzione
