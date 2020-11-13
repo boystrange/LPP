@@ -96,6 +96,7 @@ blocks:
         name:  Matching
         case:  true
   - title: "Laboratorio 8"
+    public: true
     children:
       - title: "Caratteri e stringhe"
         name:  CaratteriStringhe
