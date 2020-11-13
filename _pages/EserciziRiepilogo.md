@@ -2,6 +2,8 @@
 title: Esercizi di riepilogo
 ---
 
+{% include links.md %}
+
 ## Insiemi come liste
 
 Si supponga di utilizzare **liste ordinate** in modo crescente e
@@ -16,10 +18,10 @@ funzioni
 per calcolare rispettivamente l'unione, l'intersezione e la
 differenza di due insiemi. Alcuni esempi:
 
-* `union [1,2,3] [3,4,5] = [1,2,3,4,5]`
-* `intersection [1,2,3,4,5] [3,5,7] = [3,5]`
-* `difference [1,2,3,4,5] [3,5,7] = [1,2,4]`
-* `difference [3,5,7] [1,2,3,4,5] = [7]`
+* `union [1,2,3] [3,4,5] ~~> [1,2,3,4,5]`
+* `intersection [1,2,3,4,5] [3,5,7] ~~> [3,5]`
+* `difference [1,2,3,4,5] [3,5,7] ~~> [1,2,4]`
+* `difference [3,5,7] [1,2,3,4,5] ~~> [7]`
 
 ``` haskell
 union :: Ord a => [a] -> [a] -> [a]
@@ -45,7 +47,7 @@ difference (x : xs) (y : ys) | x == y    = difference xs ys
 ```
 {:.solution}
 
-## Monade `IO`
+## Monade [`IO`]
 
 1. Scrivere un programma `wc` che realizzi le funzionalità di base
    dell'[omonimo programma
