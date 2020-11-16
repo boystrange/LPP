@@ -108,6 +108,7 @@ blocks:
       - title: "Notazione do"
         name:  Do
   - title: "Laboratorio 9"
+    public: true
     children:
       - title: "Esercizi di riepilogo"
         name:  EserciziRiepilogo

@@ -216,7 +216,7 @@ commutativa** e ha `[]` come elemento neutro:
 ## Libreria standard
 
 Riepiloghiamo il titolo dei costruttori e delle funzioni viste in
-questa sezioni per operare sulle liste:
+questa sezione per operare sulle liste:
 
 ``` haskell
 []      :: [a]               -- lista vuota
