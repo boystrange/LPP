@@ -3,7 +3,6 @@
 ## Installazione locale
 
 ``` bash
-bundle
 bundle update
 make
 ```

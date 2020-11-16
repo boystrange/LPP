@@ -7,6 +7,9 @@ all:
 serve:
 	bundle exec jekyll serve
 
+update:
+	bundle update
+
 links:
 	( \
 		NAMES=$$(grep -o -e "\[\`[^\`]*\`\]" _pages/*.md | cut -d\` -f2 | sort -u); \
