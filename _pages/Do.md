@@ -103,7 +103,7 @@ fa parte del blocco più interno.
    ^
    ``` haskell
    getLines :: IO [String]
-   getLines = do l <- getLines
+   getLines = do l <- getLine
                  if null l then return []
                  else do ls <- getLines
                          return (l : ls)
