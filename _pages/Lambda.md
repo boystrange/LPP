@@ -102,7 +102,7 @@ Haskell **espande** le sezioni in funzioni anonime. Ad esempio,
 avremo
 
 ```haskell
-(1 + )    ~~> \x -> 1 + x
+(1 +)     ~~> \x -> 1 + x
 (`mod` 2) ~~> \x -> x `mod` 2
 ```
 
