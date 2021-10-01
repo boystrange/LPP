@@ -67,7 +67,7 @@ sono formulazioni sintatticamente diverse ma semanticamente uguali
 della stessa funzione, anche in termini di codice prodotto dal
 compilatore.
 
-Abbiamo dunque conferma dei seguenti fatti riguardanti Haskell:
+Abbiamo dunque conferma dei seguenti fatti:
 
 * Tutte le funzioni hanno esattamente un argomento;
 * Le funzioni a più argomenti sono rappresentate come "catene" di
