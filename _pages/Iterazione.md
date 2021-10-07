@@ -126,7 +126,7 @@ $$
 $$
 
 Notiamo che il caso base di `fibonacciAux` corrisponde alla
-condizioni di terminazione del ciclo `while` nella versione Java: se
+condizione di terminazione del ciclo `while` nella versione Java: se
 `k` è 0 il risultato è `m`.  Dualmente, il caso ricorsivo di
 `fibonacciAux` corrisponde all'esecuzione di una iterazione del
 ciclo `while`: se `k` è maggiore di 0, allora il risultato è
@@ -195,16 +195,16 @@ localmente definita. Notiamo inoltre la solita corrispondenza tra
 casi base di `aux` e condizioni di terminazione del ciclo nella
 versione Java di `primo`. Il ciclo termina se `k >= n`, nel qual
 caso abbiamo testato tutti i candidati divisori di `n` senza
-trovarne alcuno, e dunque ritorniamo [`True`] o [`False`] a seconda che
-`k` sia uguale o maggiore di `n`, rispettivamente. Il ciclo termina
-anche se `k` divide `n`, il che significa che abbiamo trovato un
-divisore di `n` e dunque possiamo concludere che `n` non è primo. Il
-caso induttivo della ricorsione corrisponde a una iterazione del
-ciclo, in cui ci limitiamo ad aggiornare `k` al candidato
-successivo. Proprio come nel caso della funzione di Fibonacci, anche
-qui l'applicazione `aux 2`, che dà il via alla ricorsione,
-corrisponde all'inizializzazione di `k` nella versione Java
-dell'algoritmo.
+trovarne alcuno, e dunque restituiamo [`True`] o [`False`] a seconda
+che `k` sia uguale o maggiore di `n`, rispettivamente. Il ciclo
+termina anche se `k` divide `n`, il che significa che abbiamo
+trovato un divisore di `n` e dunque possiamo concludere che `n` non
+è primo. Il caso induttivo della ricorsione corrisponde a una
+iterazione del ciclo, in cui ci limitiamo ad aggiornare `k` al
+candidato successivo. Proprio come nel caso della funzione di
+Fibonacci, anche qui l'applicazione `aux 2`, che dà il via alla
+ricorsione, corrisponde all'inizializzazione di `k` nella versione
+Java dell'algoritmo.
 
 ## Esercizi
 
