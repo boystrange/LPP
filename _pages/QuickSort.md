@@ -217,11 +217,11 @@ facendo pattern matching sulla lista di elementi da combinare:
 ``` haskell
 sum :: Num a => [a] -> a
 sum []       = 0
-sum (x : xs) = x + somma xs
+sum (x : xs) = x + sum xs
 
 product :: Num a => [a] -> a
 product []       = 1
-product (x : xs) = x * prodotto xs
+product (x : xs) = x * product xs
 ```
 
 Proprio come [`map`] e [`filter`], anche qui possiamo apprezzare delle
