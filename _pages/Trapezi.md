@@ -232,7 +232,7 @@ funzione di libreria [`uncurry`].
 	  ```
 	  {:.solution}
    3. `polinomio :: [Float] -> Float -> Float` per calcolare
-	  $\sum_{i=1}^n a_i x^i$ dati una lista $[a_0, a_1, \dots, a_n]$
+	  $\sum_{i=0}^n a_i x^i$ dati una lista $[a_0, a_1, \dots, a_n]$
 	  ed un valore $x$.
 	  ```haskell
 	  polinomio :: [Float] -> Float -> Float
