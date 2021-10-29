@@ -194,7 +194,7 @@ termina o produce [`()`].
 	 negativo $n$ e a un giorno $g$, calcoli il giorno della
 	 settimana corrispondente a $n$ giorni dopo $g$.
    * Usando la funzione di libreria [`replicate`], ridefinire la
-	 funzione `fra :: Int -> Giorno -> Giorno` dell'esercizio
+	 funzione `fra :: Int -> Giorno -> Giorno` del punto
 	 precedente senza fare uso esplicito della ricorsione.
    ^
    ```haskell
