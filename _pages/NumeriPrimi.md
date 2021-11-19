@@ -179,8 +179,8 @@ numeri primi.
    {:.solution}
 2. Due numeri primi che differiscono di 2 sono chiamati **primi
    gemelli**. Ad esempio 3 e 5 sono primi gemelli, mentre 2 e 3 non
-   lo sono. Definire una funzione `primiGemelli :: Int -> (Integer,
-   Integer)` che, applicata a un numero $n$ non negativo,
+   lo sono. Definire una funzione `primiGemelli :: Int -> [(Integer,
+   Integer)]` che, applicata a un numero $n$ non negativo,
    restituisca le prime $n$ coppie di primi gemelli.
    ^
    ``` haskell
