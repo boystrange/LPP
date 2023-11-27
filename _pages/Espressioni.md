@@ -151,7 +151,7 @@ esclusivamente su operandi interi.
    operatori `+` e `^` e minimizzando il numero di parentesi
    utilizzate. Il valore dell'espressione deve essere 31.
    ```haskell
-   2^0 + 2^1 + 2^2 + 2^4 + 2^5
+   2^0 + 2^1 + 2^2 + 2^3 + 2^4
    ```
    {:.solution}
 4. Scrivere un'espressione per calcolare
