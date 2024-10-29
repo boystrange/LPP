@@ -28,7 +28,7 @@ la sequenza di caratteri "normali" che le compongono.
 >=  corrisponde a > =
 ==  corrisponde a = =
 /=  corrisponde a / =
-!=  corrisponde a ! /
+!=  corrisponde a ! =
 >>= corrisponde a > > =
 ::  corrisponde a : :
 ++  corrisponde a + +
